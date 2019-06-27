@@ -1,5 +1,4 @@
 # Jtris
-## Yet Another Tetris Clone
 
 A group school project trying to implement the famous game "Tetris" in Java using the JavaFX library.
 
