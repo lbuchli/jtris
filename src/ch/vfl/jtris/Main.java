@@ -1,5 +1,6 @@
 package ch.vfl.jtris;
 
+import ch.vfl.jtris.game.GameView;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,12 +14,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = load(getClass().getResource("view/GameView.fxml"));
-
-        Scene scene = new Scene(root, 240, 400);
+        GameView view = new GameView();
 
         stage.setTitle("Jtris");
-        stage.setScene(scene);
+        stage.setScene(view.run());
         stage.show();
     }
 
