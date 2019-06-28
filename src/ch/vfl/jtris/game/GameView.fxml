@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.vfl.jtris.view.View">
+<AnchorPane prefHeight="400.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.vfl.jtris.view.GameView">
    <children>
       <Pane id="field" prefHeight="400.0" prefWidth="240.0" style="-fx-background-color: #bbb;" />
       <Pane id="next" layoutX="318.0" layoutY="55.0" prefHeight="97.0" prefWidth="105.0" style="-fx-background-color: #bbb;" />
