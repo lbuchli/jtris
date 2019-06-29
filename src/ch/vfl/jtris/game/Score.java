@@ -1,14 +1,14 @@
 package ch.vfl.jtris.game;
 
-import javafx.scene.layout.Pane;
+import javafx.scene.canvas.Canvas;
 
 class Score {
     private int score;
 
-    private Pane pane;
+    private Canvas canvas;
 
-    Score(Pane score) {
-        this.pane = score;
+    Score(Canvas score) {
+        this.canvas = score;
         this.score = 0;
     }
 

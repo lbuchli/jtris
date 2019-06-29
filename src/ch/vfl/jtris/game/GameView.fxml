@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.vfl.jtris.game.GameView">
    <children>
-      <Pane id="field" prefHeight="400.0" prefWidth="240.0" style="-fx-background-color: #bbb;" />
-      <Pane id="next" layoutX="318.0" layoutY="55.0" prefHeight="97.0" prefWidth="105.0" style="-fx-background-color: #bbb;" />
       <Text layoutX="321.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Next Block" textAlignment="CENTER" wrappingWidth="98.0908203125">
          <font>
             <Font name="DejaVu Sans ExtraLight" size="18.0" />
@@ -20,10 +18,13 @@
             <Font name="DejaVu Sans ExtraLight" size="18.0" />
          </font>
       </Text>
-      <Text id="score" layoutX="321.0" layoutY="258.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="9001" textAlignment="CENTER" wrappingWidth="98.0908203125">
+      <Text id="score" layoutX="321.0" layoutY="258.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="98.0908203125">
          <font>
             <Font name="DejaVu Sans" size="18.0" />
          </font>
       </Text>
+      <Canvas id="field" height="400.0" width="240.0" />
+      <Canvas height="110.0" layoutX="315.0" layoutY="55.0" width="110.0" />
+      <Line endX="4.0" endY="280.0" layoutX="242.0" layoutY="121.0" startX="4.0" startY="-123.0" />
    </children>
 </AnchorPane>

@@ -1,27 +1,28 @@
 package ch.vfl.jtris.game;
 
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
+import java.awt.*;
+
 class Field {
-    private static final int FIELD_TILE_HEIGHT = 20;
+    private static final int FIELD_TILE_WIDTH = 10;
 
 
     private Color[][] field;
     private Block current;
 
-    private Pane pane;
+    private Canvas canvas;
     private IBlockFeeder feeder;
 
-    Field(Pane field, IBlockFeeder feeder) {
-        this.pane = field;
+    Field(Canvas field, IBlockFeeder feeder) {
+        this.canvas = field;
         this.feeder = feeder;
 
         // make the field
-        double fieldSize = pane.getHeight() / FIELD_TILE_HEIGHT;
-        int fieldTileWidth = (int) (pane.getWidth() / fieldSize);
-        this.field = new Color[fieldTileWidth][FIELD_TILE_HEIGHT];
+        double fieldSize = canvas.getWidth() / FIELD_TILE_WIDTH;
+        int fieldTileHeight = (int) (canvas.getHeight() / fieldSize);
+        this.field = new Color[FIELD_TILE_WIDTH][fieldTileHeight];
 
         // make a new block
         this.current = feeder.generateNext();

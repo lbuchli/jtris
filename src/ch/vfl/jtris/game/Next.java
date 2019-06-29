@@ -1,16 +1,16 @@
 package ch.vfl.jtris.game;
 
-import javafx.scene.layout.Pane;
+import javafx.scene.canvas.Canvas;
 
 class Next {
     private static final int POLYOMINO_SIZE = 4;
 
     private Block next;
 
-    private Pane pane;
+    private Canvas canvas;
 
-    Next(Pane next) {
-        this.pane = pane;
+    Next(Canvas next) {
+        this.canvas = next;
     }
 
     Block generateNext() {
