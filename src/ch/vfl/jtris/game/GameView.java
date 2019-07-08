@@ -25,7 +25,7 @@ public class GameView {
         next = new Next((Canvas) scene.lookup("#next"));
         field = new Field((Canvas) scene.lookup("#field"), next);
 
-        // TODO instantiate and hook up Field, Next and Score
+        field.setScoreRecipient(score);
 
 
         scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {

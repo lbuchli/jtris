@@ -26,9 +26,16 @@ class Next implements IBlockFeeder {
     // drawNextBlock draws the next block onto the canvas via the graphicsContext.
     private void drawNextBlock() {
         boolean[][] shape = next.getShape();
-        double squareWidth = canvas.getWidth() / shape.length;
-        double squareHeight = canvas.getHeight() / shape.length;
+        double width = canvas.getWidth() / shape.length;
+        double height = canvas.getHeight() / shape.length;
+        //TODO ALIGN THE SHAPE TO CENTER
+        graphicsContext.fillRect(0, 0, width, height);
 
 
     }
+}
+
+@FunctionalInterface
+interface IBlockFeeder {
+    Block generateNext();
 }
