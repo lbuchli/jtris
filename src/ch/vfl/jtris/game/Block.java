@@ -23,15 +23,15 @@ class Block {
 
         if (clockwise == false) {
 
-            for (int b = 3; b >= 0; b = b - 1) {
-                for (int a = 0; a <= 4; a++) {
+            for (int b = shape.length; b >= 0; b = b - 1) {
+                for (int a = 0; a < shape.length; a++) {
                     shapecopy[b][a] = shape[a][3 - b];
                 }
             }
         }else{
-            for (int b = 0; b <= 4; b++){
-                for(int a1 = 0; a1 <= 4; a1++){
-                    int a2 = 3 - a1;
+            for (int b = 0; b <= shape.length; b++){
+                for(int a1 = 0; a1 < shape.length; a1++){
+                    int a2 = shape.length - a1;
                     shapecopy[b][a1]= shape[a2][b];
                 }
             }
