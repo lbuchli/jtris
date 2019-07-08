@@ -38,7 +38,7 @@ class Field {
         // TODO start main game loop
     }
 
-    void onKeyboardInput(KeyEvent key) {
+    void onKeyboardInput(KeyEvent key){
         // TODO handle keyboard input
     }
 
