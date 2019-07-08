@@ -1,5 +1,6 @@
 package ch.vfl.jtris.game;
 
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.canvas.Canvas;
@@ -39,8 +40,21 @@ class Field {
         // TODO start main game loop
     }
 
-    void onKeyboardInput(KeyEvent key){
+    void onKeyboardInput(KeyEvent keyEvent){
         // TODO handle keyboard input
+
+
+        switch(keyEvent.getCode()) {
+            case KeyCode.W:
+                current.rotateShape(true);
+
+            case KeyCode.A:
+
+            case KeyCode.S:
+
+            case KeyCode.D:
+        }
+
     }
 
     boolean isPossibleMove(int x, int y) {
