@@ -32,3 +32,8 @@ class Next implements IBlockFeeder {
 
     }
 }
+
+@FunctionalInterface
+interface IBlockFeeder {
+    Block generateNext();
+}
