@@ -24,7 +24,7 @@
          </font>
       </Text>
       <Canvas id="field" height="400.0" width="240.0" />
-      <Canvas height="110.0" layoutX="315.0" layoutY="55.0" width="110.0" />
+      <Canvas id="next" height="110.0" layoutX="315.0" layoutY="55.0" width="110.0" />
       <Line endX="4.0" endY="280.0" layoutX="242.0" layoutY="121.0" startX="4.0" startY="-123.0" />
    </children>
 </AnchorPane>

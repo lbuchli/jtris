@@ -2,7 +2,7 @@ package ch.vfl.jtris.game;
 
 import javafx.scene.canvas.Canvas;
 
-class Next {
+class Next implements IBlockFeeder {
     private static final int POLYOMINO_SIZE = 4;
 
     private Block next;
@@ -13,7 +13,7 @@ class Next {
         this.canvas = next;
     }
 
-    Block generateNext() {
+    public Block generateNext() {
         next = new Block(POLYOMINO_SIZE);
 
         // TODO draw block on pane

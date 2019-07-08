@@ -2,8 +2,7 @@ package ch.vfl.jtris.game;
 
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
-
-import java.awt.*;
+import javafx.scene.canvas.Canvas;
 
 class Field {
     private static final int FIELD_TILE_WIDTH = 10;
