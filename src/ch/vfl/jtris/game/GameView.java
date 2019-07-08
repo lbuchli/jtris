@@ -27,6 +27,7 @@ public class GameView {
 
         // TODO instantiate and hook up Field, Next and Score
 
+
         scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
             field.onKeyboardInput(key);
         });

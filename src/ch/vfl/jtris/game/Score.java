@@ -16,6 +16,10 @@ class Score {
         this.score = score;
 
         // TODO draw score
+        String StrScore = " ";
+        StrScore = Integer.toString(score);
+
+        display.setText(StrScore);
     }
 }
 
