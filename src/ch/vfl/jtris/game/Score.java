@@ -2,7 +2,7 @@ package ch.vfl.jtris.game;
 
 import javafx.scene.text.Text;
 
-class Score {
+class Score implements IScoreRecipient {
     private int score;
 
     private Text display;
@@ -12,7 +12,7 @@ class Score {
         this.score = 0;
     }
 
-    void setScore(int score) {
+    public void setScore(int score) {
         this.score = score;
 
         // TODO draw score
@@ -20,6 +20,6 @@ class Score {
 }
 
 @FunctionalInterface
-interface IBlockFeeder {
-    Block generateNext();
+interface IScoreRecipient {
+    void setScore(int score);
 }
