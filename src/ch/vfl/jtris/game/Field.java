@@ -34,11 +34,12 @@ class Field {
         this.score = recipient;
     }
 
-    void start() {
+    void run() {
+        feeder.generateNext();
         // TODO start main game loop
     }
 
-    void onKeyboardInput(KeyEvent key) {
+    void onKeyboardInput(KeyEvent key){
         // TODO handle keyboard input
     }
 

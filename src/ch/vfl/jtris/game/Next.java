@@ -28,6 +28,7 @@ class Next implements IBlockFeeder {
         boolean[][] shape = next.getShape();
         double width = canvas.getWidth() / shape.length;
         double height = canvas.getHeight() / shape.length;
+<<<<<<< HEAD
         for (int i = 0; i < shape.length; i++) {
             for (int j = 0; j < shape[i].length; j++) {
                 //TODO ALIGN THE SHAPE TO CENTER
@@ -36,6 +37,10 @@ class Next implements IBlockFeeder {
                 }
             }
         }
+=======
+        //TODO ALIGN THE SHAPE TO CENTER
+        graphicsContext.fillRect(0, 0, width, height);
+>>>>>>> 3f3fca513e34e42271d833a8306b360f99529405
     }
 }
 

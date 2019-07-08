@@ -17,7 +17,7 @@ public class GameView {
 
     public GameView() {}
 
-    public Scene run() throws IOException {
+    public Scene start() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("GameView.fxml"));
         Scene scene = new Scene(root, 240, 400);
 
@@ -32,5 +32,9 @@ public class GameView {
         });
 
         return scene;
+    }
+
+    public void run() {
+        field.run();
     }
 }
