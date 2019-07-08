@@ -34,7 +34,8 @@ class Field {
         this.score = recipient;
     }
 
-    void start() {
+    void run() {
+        feeder.generateNext();
         // TODO start main game loop
     }
 

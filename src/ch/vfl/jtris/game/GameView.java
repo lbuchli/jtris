@@ -17,7 +17,7 @@ public class GameView {
 
     public GameView() {}
 
-    public Scene run() throws IOException {
+    public Scene start() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("GameView.fxml"));
         Scene scene = new Scene(root, 240, 400);
 
@@ -27,11 +27,14 @@ public class GameView {
 
         field.setScoreRecipient(score);
 
-
         scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
             field.onKeyboardInput(key);
         });
 
         return scene;
+    }
+
+    public void run() {
+        field.run();
     }
 }
