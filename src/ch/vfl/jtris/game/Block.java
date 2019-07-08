@@ -20,17 +20,13 @@ class Block {
     // rotateShape rotates the shape 90 degrees.
     public void rotateShape(boolean clockwise) {
         // TDOO stub
-        boolean[][] shapecopy;
-        while(){
-            shapecopy = System.arraycopy(shape, shapecopy);
+        boolean[][] shapecopy = shape;
 
-
-
+        for(int b = 3; b <= 0; b = b-1) {
+            for (int a = 0; a <= 4; a++) {
+                shapecopy[b][a] = shape[a][b];
+            }
         }
-
-
-
-
     }
 
     public boolean[][] getShape() {
