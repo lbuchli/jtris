@@ -30,8 +30,6 @@ class Next implements IBlockFeeder {
         double height = canvas.getHeight() / shape.length;
         //TODO ALIGN THE SHAPE TO CENTER
         graphicsContext.fillRect(0, 0, width, height);
-
-
     }
 }
 
