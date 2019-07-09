@@ -2,6 +2,7 @@ package ch.vfl.jtris.game;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.*;
 
 class Next implements IBlockFeeder {
     private static final int POLYOMINO_SIZE = 4;
@@ -30,8 +31,9 @@ class Next implements IBlockFeeder {
         double height = canvas.getHeight() / shape.length;
         for (int i = 0; i < shape.length; i++) {
             for (int j = 0; j < shape[i].length; j++) {
-                //TODO ALIGN THE SHAPE TO CENTER
+                //TODO ALIGN THE SHAPE TO CENTER0
                 if (shape[i][j]) {
+                    graphicsContext.setFill(next.getColor());
                     graphicsContext.fillRect(i*width, j*height, width, height);
                 }
             }

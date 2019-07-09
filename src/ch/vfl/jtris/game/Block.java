@@ -13,7 +13,7 @@ class Block {
     public Block(int size) {
         // generate the shape randomly
         int id = generateShape(size);
-        centerShape(size);
+        //centerShape(size);
         this.color = generateColorFromID(id, size);
     }
 
