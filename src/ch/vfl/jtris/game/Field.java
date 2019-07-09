@@ -148,7 +148,13 @@ class Field {
         }
 
         // check for lines to delete
-        deleteLines(getFullLines());
+        boolean[] fullLines = getFullLines();
+        for (boolean line : fullLines) {
+            if (line) {
+                score.addScore(100);
+            }
+        }
+        deleteLines(fullLines);
     }
 
     private boolean[] getFullLines() {

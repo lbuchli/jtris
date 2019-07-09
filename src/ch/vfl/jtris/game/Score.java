@@ -21,9 +21,13 @@ class Score implements IScoreRecipient {
 
         display.setText(StrScore);
     }
+
+    public void addScore(int score) {
+        setScore(this.score + score);
+    }
 }
 
-@FunctionalInterface
 interface IScoreRecipient {
     void setScore(int score);
+    void addScore(int score);
 }
