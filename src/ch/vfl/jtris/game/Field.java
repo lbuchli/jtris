@@ -39,9 +39,6 @@ class Field {
     }
 
     void onKeyboardInput(KeyEvent keyEvent){
-        // TODO handle keyboard input
-
-
         switch(keyEvent.getCode()) {
             case W:
                 current.rotateShape(true);
@@ -59,7 +56,6 @@ class Field {
                 currentPosX++;
                 break;
         }
-
     }
 
     private boolean isPossibleMove(int x, int y) {
@@ -70,5 +66,9 @@ class Field {
     private boolean isPossibleRotation(boolean clockwise) {
         // TODO check
         return true;
+    }
+
+    private void drawField() {
+
     }
 }
