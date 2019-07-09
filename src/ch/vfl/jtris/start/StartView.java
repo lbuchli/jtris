@@ -28,6 +28,7 @@ public class StartView{
         scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
             System.out.println("Pressed");
             stage.setScene(sOne);
+            game.run();
         });
 
         return scene;
@@ -35,9 +36,5 @@ public class StartView{
 
     public void setStage(Stage stage) {
         this.stage = stage;
-    }
-
-    public void run() throws IOException{
-        game.run();
     }
 }

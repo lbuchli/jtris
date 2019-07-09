@@ -23,14 +23,6 @@ public class Main extends Application {
         view.setStage(stage);
 
         stage.setScene(currentScene);
-        stage.setOnShown((WindowEvent e) -> {
-            try {
-                view.run();
-            }
-            catch (IOException z){
-                System.out.println("Frick...");
-            }
-        });
         stage.show();
     }
 
