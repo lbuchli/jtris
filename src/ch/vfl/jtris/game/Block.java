@@ -12,9 +12,15 @@ class Block {
 
     public Block(int size) {
         // generate the shape randomly
-        int id = generateShape(size);
+        //int id = generateShape(size);
         //centerShape(size);
-        this.color = generateColorFromID(id, size);
+        //this.color = generateColorFromID(id, size);
+
+        // generate shape based on existing ones
+        Random random = new Random();
+        int shape = random.nextInt(7);
+        this.shape = Shapes.SHAPE_LIST[shape];
+        this.color = Shapes.SHAPE_COLORS[shape];
     }
 
     // rotateShape rotates the shape 90 degrees.
@@ -126,7 +132,7 @@ class Block {
             id = (id >> 2);
         }
 
-        return new Color(0, r/size, g/size, b/size);
+        return new Color(r/size, g/size, b/size, 1);
     }
 
     // centerShape centers the shape

@@ -8,7 +8,6 @@ import javafx.scene.canvas.Canvas;
 class Field {
     private static final int FIELD_TILE_WIDTH = 10;
 
-
     private Color[][] field;
     private Block current;
     private int currentPosX;
@@ -36,7 +35,6 @@ class Field {
     }
 
     void run() {
-        feeder.generateNext();
         // TODO start main game loop
     }
 
