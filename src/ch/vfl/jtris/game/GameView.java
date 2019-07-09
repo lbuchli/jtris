@@ -56,8 +56,6 @@ public class GameView {
                     clip.loop(20000);
                     clip.start();
                 } catch (Exception e) {
-                    System.err.println(e.getMessage());
-                    System.out.println("Unable to play music!");
                 }
             }
         }).start();
@@ -73,8 +71,6 @@ public class GameView {
                     clip.open(inputStream);
                     clip.start();
                 } catch (Exception e) {
-                    System.err.println(e.getMessage());
-                    System.out.println("Unable to play sound!");
                 }
             }
         }).start();
