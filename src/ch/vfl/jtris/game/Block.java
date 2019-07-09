@@ -21,7 +21,7 @@ class Block {
     public void rotateShape(boolean clockwise) {
         boolean[][] shapecopy = shape;
 
-        if (clockwise == false) {
+        if (!clockwise) {
 
             for (int b = shape.length; b >= 0; b = b - 1) {
                 for (int a = 0; a < shape.length; a++) {
@@ -52,7 +52,7 @@ class Block {
     }
 
     // generateShape generates a shape randomly based on a size and saves it in this.shape
-    // It uses a similar approach as the simple recursive algorithm descibed
+    // It uses a similar approach as the simple recursive algorithm described
     // in https://en.wikipedia.org/wiki/Polyomino, except it chooses one path at random
     // (which makes it non-recursive).
     // It returns the ID of the generated shape as an int.
