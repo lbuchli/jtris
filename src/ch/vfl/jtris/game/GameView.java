@@ -43,7 +43,15 @@ public class GameView {
     }
 
     private void playmusic(String filename){
-        String musicFile = "resources/music/" +filename;
+        String musicFile = "resources/music/" + filename + ".wav";
+
+        Media sound = new Media(new File(musicFile).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+    }
+
+    private void playsound(String soundname){
+        String musicFile = "resources/sounds/" + soundname + ".wav";
 
         Media sound = new Media(new File(musicFile).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(sound);
