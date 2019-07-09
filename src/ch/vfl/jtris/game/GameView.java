@@ -49,8 +49,6 @@ public class GameView {
 
     private void playmusic(/*String filename*/){
         new Thread(new Runnable() {
-            // The wrapper thread is unnecessary, unless it blocks on the
-            // Clip finishing; see comments.
             public void run() {
                 try {
                     Clip clip = AudioSystem.getClip();
@@ -67,13 +65,21 @@ public class GameView {
         }).start();
     }
 
-    private void playsound(String soundname){
-        String musicFile = "resources/sounds/" + soundname + ".wav";
-
-        Media sound = new Media(new File(musicFile).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
+    private void playsound(String soundname) {
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+                    Clip clip = AudioSystem.getClip();
+                    AudioInputStream inputStream = AudioSystem.getAudioInputStream(
+                            Main.class.getResourceAsStream("/sound/" + soundname + ".wav"));
+                    clip.open(inputStream);
+                    clip.start();
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
+                    System.out.println("Unable to play music!");
+                }
+            }
+        }).start();
     }
-
 }
 
