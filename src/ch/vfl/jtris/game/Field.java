@@ -45,24 +45,31 @@ class Field {
 
 
         switch(keyEvent.getCode()) {
-            case KeyCode.W:
+            case W:
                 current.rotateShape(true);
+                break;
 
-            case KeyCode.A:
+            case A:
+                currentPosX--;
+                break;
 
-            case KeyCode.S:
+            case S:
+                currentPosY--;
+                break;
 
-            case KeyCode.D:
+            case D:
+                currentPosX++;
+                break;
         }
 
     }
 
-    boolean isPossibleMove(int x, int y) {
+    private boolean isPossibleMove(int x, int y) {
         // TODO check
         return true;
     }
 
-    boolean isPossibleRotation(boolean clockwise) {
+    private boolean isPossibleRotation(boolean clockwise) {
         // TODO check
         return true;
     }
