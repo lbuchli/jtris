@@ -34,11 +34,12 @@ public class GameView {
             field.onKeyboardInput(key);
         });
 
+
         return scene;
     }
 
     public void run() {
-        field.run();
+        new Thread(() -> field.run()).start();
     }
 
     private void playmusic(String filename){

@@ -1,10 +1,8 @@
 package ch.vfl.jtris.game;
 
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.input.KeyCode;
+import ch.vfl.jtris.util.Canvas;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
-import javafx.scene.canvas.Canvas;
 
 class Field {
     private static final int FIELD_TILE_WIDTH = 10;
@@ -15,24 +13,18 @@ class Field {
     private int currentPosY;
 
     private Canvas canvas;
-    private GraphicsContext graphicsContext;
 
     private IBlockFeeder feeder;
     private IScoreRecipient score;
 
-    Field(Canvas field, IBlockFeeder feeder) {
-        this.canvas = field;
-        this.graphicsContext = this.canvas.getGraphicsContext2D();
+    Field(javafx.scene.canvas.Canvas field, IBlockFeeder feeder) {
+        this.canvas = new Canvas(field);
+        this.canvas.divideXToSquares(FIELD_TILE_WIDTH);
 
         this.feeder = feeder;
 
         // make the field
-        double fieldSize = canvas.getWidth() / FIELD_TILE_WIDTH;
-        int fieldTileHeight = (int) (canvas.getHeight() / fieldSize);
-        this.field = new Color[FIELD_TILE_WIDTH][fieldTileHeight];
-
-        // make a new block
-        this.current = feeder.generateNext();
+        this.field = new Color[canvas.getXSquares()][canvas.getYSquares()];
     }
 
     public void setScoreRecipient(IScoreRecipient recipient) {
@@ -40,7 +32,28 @@ class Field {
     }
 
     void run() {
-        // TODO start main game loop
+        spawnNewBlock();
+
+        boolean interrupted = false;
+
+        while (!interrupted) {
+            /*
+            if (isPossibleMove(0, 1)) {
+                currentPosY++;
+            } else {
+                spawnNewBlock();
+            }*/
+            currentPosY++;
+
+            // we can do that because JavaFX runs our stuff in parallel
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                interrupted = true;
+            }
+
+            drawField();
+        }
     }
 
     void onKeyboardInput(KeyEvent keyEvent){
@@ -83,8 +96,6 @@ class Field {
             }
         }
 
-
-
         return true;
     }
 
@@ -94,6 +105,32 @@ class Field {
     }
 
     private void drawField() {
+        boolean[][] shape = current.getShape();
 
+        canvas.clear();
+
+        // draw the field
+        for (int i = 0; i < field.length; i++) {
+            for (int j = 0; j < field[i].length; j++) {
+                if (field[i][j] != null) {
+                    canvas.drawSquare(i, j, field[i][j]);
+                }
+            }
+        }
+
+        // draw the current block
+        for (int i = 0; i < shape.length; i++) {
+            for (int j = 0; j < shape[i].length; j++) {
+                if (shape[i][j]) {
+                    canvas.drawSquare(i+currentPosX, j+currentPosY, current.getColor());
+                }
+            }
+        }
+    }
+
+    private void spawnNewBlock() {
+        current = feeder.generateNext();
+        currentPosY = 0;
+        currentPosX = (canvas.getXSquares() / 2) - (current.getShape().length / 2);
     }
 }
