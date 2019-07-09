@@ -9,8 +9,12 @@ class Field {
 
     private Color[][] field;
     private Block current;
+
     private int currentPosX;
     private int currentPosY;
+
+    private int nextXOffset;
+    private int nextYOffset;
 
     private Canvas canvas;
 
@@ -27,27 +31,22 @@ class Field {
         this.field = new Color[canvas.getXSquares()][canvas.getYSquares()];
     }
 
-    public void setScoreRecipient(IScoreRecipient recipient) {
-        this.score = recipient;
-    }
-
     void run() {
         spawnNewBlock();
 
         boolean interrupted = false;
 
         while (!interrupted) {
-            /*
             if (isPossibleMove(0, 1)) {
                 currentPosY++;
             } else {
+                cloneBlockToField();
                 spawnNewBlock();
-            }*/
-            currentPosY++;
+            }
 
             // we can do that because JavaFX runs our stuff in parallel
             try {
-                Thread.sleep(200);
+                Thread.sleep(400);
             } catch (InterruptedException e) {
                 interrupted = true;
             }
@@ -63,32 +62,32 @@ class Field {
                 break;
 
             case A:
-                currentPosX--;
+                if (isPossibleMove(-1, 0)) currentPosX--;
                 break;
 
             case S:
-                currentPosY--;
+                if (isPossibleMove(0, 1)) currentPosY++;
                 break;
 
             case D:
-                currentPosX++;
+                if (isPossibleMove(1, 0)) currentPosX++;
                 break;
         }
+        drawField();
     }
 
-    private boolean isPossibleMove(int x, int y) {
-        // TODO check
+    private boolean isPossibleMove(int xOffset, int yOffset) {
         boolean[][] shape = current.getShape();
 
-        for (int i = 0; i < shape.length; i++){
-            for (int j = 0; j < shape[i].length; j++){
-                if(shape[i][j]){
-                    int playfieldposY = currentPosY + j;
-                    int playfieldposX = currentPosX + i;
+        for (int x = 0; x < shape.length; x++){
+            for (int y = 0; y < shape[x].length; y++){
+                if(shape[x][y]){
+                    int playfieldposX = currentPosX + x + xOffset;
+                    int playfieldposY = currentPosY + y + yOffset;
 
-                    if(field[playfieldposX + x][playfieldposY + y] == null){
-                        return true;
-
+                    if(playfieldposX < field.length && playfieldposX >= 0 &&
+                        playfieldposY < field[playfieldposX].length && playfieldposY >= 0 &&
+                        field[playfieldposX][playfieldposY] == null){
                     }else {
                         return false;
                     }
@@ -110,19 +109,19 @@ class Field {
         canvas.clear();
 
         // draw the field
-        for (int i = 0; i < field.length; i++) {
-            for (int j = 0; j < field[i].length; j++) {
-                if (field[i][j] != null) {
-                    canvas.drawSquare(i, j, field[i][j]);
+        for (int x = 0; x < field.length; x++) {
+            for (int y = 0; y < field[x].length; y++) {
+                if (field[x][y] != null) {
+                    canvas.drawSquare(x, y, field[x][y]);
                 }
             }
         }
 
         // draw the current block
-        for (int i = 0; i < shape.length; i++) {
-            for (int j = 0; j < shape[i].length; j++) {
-                if (shape[i][j]) {
-                    canvas.drawSquare(i+currentPosX, j+currentPosY, current.getColor());
+        for (int x = 0; x < shape.length; x++) {
+            for (int y = 0; y < shape[x].length; y++) {
+                if (shape[x][y]) {
+                    canvas.drawSquare(x+currentPosX, y+currentPosY, current.getColor());
                 }
             }
         }
@@ -132,5 +131,22 @@ class Field {
         current = feeder.generateNext();
         currentPosY = 0;
         currentPosX = (canvas.getXSquares() / 2) - (current.getShape().length / 2);
+    }
+
+    private void cloneBlockToField() {
+        boolean[][] shape = current.getShape();
+        Color color = current.getColor();
+
+        for (int x = 0; x < shape.length; x++) {
+            for (int y = 0; y < shape[x].length; y++) {
+                if (shape[x][y]) {
+                    field[x+currentPosX][y+currentPosY] = color;
+                }
+            }
+        }
+    }
+
+    public void setScoreRecipient(IScoreRecipient recipient) {
+        this.score = recipient;
     }
 }

@@ -16,13 +16,17 @@ class Next implements IBlockFeeder {
     Next(javafx.scene.canvas.Canvas next) {
         this.canvas = new Canvas(next);
         this.canvas.divideXToSquares(POLYOMINO_SIZE);
+
+        this.next = new Block(POLYOMINO_SIZE);
+        drawNextBlock();
     }
 
     public Block generateNext() {
+        Block old = next;
         next = new Block(POLYOMINO_SIZE);
         drawNextBlock();
 
-        return next;
+        return old;
     }
 
     // drawNextBlock draws the next block onto the canvas via the graphicsContext.
