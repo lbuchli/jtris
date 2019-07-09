@@ -27,26 +27,41 @@ class Block {
     public void rotateShape(boolean clockwise) {
         boolean[][] shapecopy = shape;
 
+        int arraylength = shape.length - 1;
+
         if (!clockwise) {
 
-            for (int b = shape.length; b >= 0; b = b - 1) {
-                for (int a = 0; a < shape.length; a++) {
-                    shapecopy[b][a] = shape[a][3 - b];
+            for (int b = arraylength; b > 0; b = b - 1) {
+                for (int a = 0; a < arraylength; a++) {
+                    int b2 = arraylength - b;
+                    shapecopy[b][a] = shape[a][b2];
                 }
             }
         }else{
-            for (int b = 0; b <= shape.length; b++){
-                for(int a1 = 0; a1 < shape.length; a1++){
-                    int a2 = shape.length - a1;
+        /*    for (int b = 0; b < arraylength; b++){
+                for(int a1 = 0; a1 < arraylength; a1++){
+                    int a2 = arraylength - a1;
                     shapecopy[b][a1]= shape[a2][b];
                 }
+            }*/
+            for(int a = 0; a < shape.length; a++){
+                for(int b = 0; b < shape.length; b++){
+                    int bi = arraylength - b;
+                    shapecopy[a][bi] = shape[b][a];
+
+                }
             }
+
+
+
         }
-        for(int i=0; i<shapecopy.length; i++) {
-            for (int j = 0; j < shapecopy[i].length; j++) {
+        System.out.println("\r \r");
+        for(int i=0; i < arraylength; i++) {
+            for (int j = 0; j < arraylength; j++) {
                 shapecopy[i][j] = shape[i][j];
             }
         }
+
     }
 
     public boolean[][] getShape() {
