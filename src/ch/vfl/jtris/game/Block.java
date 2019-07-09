@@ -75,10 +75,10 @@ class Block {
                 List<Integer> possY = new ArrayList<>();
 
                 // check all direct neighbors
-                if (x < size-1 && !shape[x+1][y]) { possX.add(1);  possY.add(0);  }
-                if (x > 1      && !shape[x-1][y]) { possX.add(-1); possY.add(0);  }
-                if (y < size-1 && !shape[x][y+1]) { possX.add(0);  possY.add(1);  }
-                if (y > 1      && !shape[x][y-1]) { possX.add(0);  possY.add(-1); }
+                if (x+1 < size && !shape[x+1][y]) { possX.add(1);  possY.add(0);  }
+                if (x-1 > 0    && !shape[x-1][y]) { possX.add(-1); possY.add(0);  }
+                if (y+1 < size && !shape[x][y+1]) { possX.add(0);  possY.add(1);  }
+                if (y-1 > 0    && !shape[x][y-1]) { possX.add(0);  possY.add(-1); }
 
                 // choose one neighbor at random
                 int neighbor = random.nextInt(possX.size());
