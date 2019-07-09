@@ -5,8 +5,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 
+import java.io.File;
 import java.io.IOException;
 
 public class GameView {
@@ -37,4 +40,14 @@ public class GameView {
     public void run() {
         field.run();
     }
+
+    private void playmusic(String filename){
+        String musicFile = filename;
+
+        Media sound = new Media(new File(musicFile).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+    }
+
 }
+

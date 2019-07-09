@@ -60,6 +60,26 @@ class Field {
 
     private boolean isPossibleMove(int x, int y) {
         // TODO check
+        boolean[][] shape = current.getShape();
+
+        for (int i = 0; i < shape.length; i++){
+            for (int j = 0; j < shape[i].length; j++){
+                if(shape[i][j]){
+                    int playfieldposY = currentPosY + j;
+                    int playfieldposX = currentPosX + i;
+
+                    if(field[playfieldposX + x][playfieldposY + y] == null){
+                        return true;
+
+                    }else {
+                        return false;
+                    }
+                }
+            }
+        }
+
+
+
         return true;
     }
 
