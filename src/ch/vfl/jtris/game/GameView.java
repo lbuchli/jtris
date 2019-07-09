@@ -1,5 +1,6 @@
 package ch.vfl.jtris.game;
 
+import ch.vfl.jtris.Main;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,6 +10,9 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import java.io.File;
 import java.io.IOException;
 
@@ -40,14 +44,27 @@ public class GameView {
 
     public void run() {
         new Thread(() -> field.run()).start();
+            playmusic();
     }
 
-    private void playmusic(String filename){
-        String musicFile = "resources/music/" + filename + ".wav";
-
-        Media sound = new Media(new File(musicFile).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
+    private void playmusic(/*String filename*/){
+        new Thread(new Runnable() {
+            // The wrapper thread is unnecessary, unless it blocks on the
+            // Clip finishing; see comments.
+            public void run() {
+                try {
+                    Clip clip = AudioSystem.getClip();
+                    AudioInputStream inputStream = AudioSystem.getAudioInputStream(
+                            Main.class.getResourceAsStream("/music/final_atheme.wav"));
+                    clip.open(inputStream);
+                    clip.loop(20000);
+                    clip.start();
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
+                    System.out.println("Unable to play music!");
+                }
+            }
+        }).start();
     }
 
     private void playsound(String soundname){
