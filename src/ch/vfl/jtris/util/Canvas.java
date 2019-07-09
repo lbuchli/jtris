@@ -58,4 +58,14 @@ public class Canvas {
     public void clear() {
         graphicsContext.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
     }
+
+    // getXSquares returns the amount of squares in the X direction.
+    public int getXSquares() {
+        return (int) Math.round((canvas.getWidth() - xOffset) / squareSize);
+    }
+
+    // getYSquares returns the amount of squares in the Y direction.
+    public int getYSquares() {
+        return (int) Math.round((canvas.getHeight() - yOffset) / squareSize);
+    }
 }
