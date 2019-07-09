@@ -25,40 +25,16 @@ class Block {
 
     // rotateShape rotates the shape 90 degrees.
     public void rotateShape(boolean clockwise) {
-        boolean[][] shapecopy = shape;
 
-        int arraylength = shape.length - 1;
+        int N = shape.length;
 
-        if (!clockwise) {
-
-            for (int b = arraylength; b > 0; b = b - 1) {
-                for (int a = 0; a < arraylength; a++) {
-                    int b2 = arraylength - b;
-                    shapecopy[b][a] = shape[a][b2];
-                }
-            }
-        }else{
-        /*    for (int b = 0; b < arraylength; b++){
-                for(int a1 = 0; a1 < arraylength; a1++){
-                    int a2 = arraylength - a1;
-                    shapecopy[b][a1]= shape[a2][b];
-                }
-            }*/
-            for(int a = 0; a < shape.length; a++){
-                for(int b = 0; b < shape.length; b++){
-                    int bi = arraylength - b;
-                    shapecopy[a][bi] = shape[b][a];
-
-                }
-            }
-
-
-
-        }
-        System.out.println("\r \r");
-        for(int i=0; i < arraylength; i++) {
-            for (int j = 0; j < arraylength; j++) {
-                shapecopy[i][j] = shape[i][j];
+        for (int x = 0; x < N / 2; x++) {
+            for (int y = x; y < N-x-1; y++) {
+                boolean temp = shape[x][y];
+                shape[x][y] = shape[y][N-1-x];
+                shape[y][N-1-x] = shape[N-1-x][N-1-y];
+                shape[N-1-x][N-1-y] = shape[N-1-y][x];
+                shape[N-1-y][x] = temp;
             }
         }
 
