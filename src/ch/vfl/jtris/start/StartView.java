@@ -26,7 +26,6 @@ public class StartView{
         Scene scene = new Scene(root, 240, 400);
 
         scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
-            System.out.println("Pressed");
             stage.setScene(sOne);
             game.run();
         });
