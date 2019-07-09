@@ -6,14 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import java.io.File;
 import java.io.IOException;
 
 public class GameView {
@@ -45,6 +42,7 @@ public class GameView {
     public void run() {
         new Thread(() -> field.run()).start();
             playmusic();
+            playsound("achive");
     }
 
     private void playmusic(/*String filename*/){
@@ -65,18 +63,18 @@ public class GameView {
         }).start();
     }
 
-    private void playsound(String soundname) {
+    public void playsound(String filename) {
         new Thread(new Runnable() {
             public void run() {
                 try {
                     Clip clip = AudioSystem.getClip();
                     AudioInputStream inputStream = AudioSystem.getAudioInputStream(
-                            Main.class.getResourceAsStream("/sound/" + soundname + ".wav"));
+                            Main.class.getResourceAsStream("/sounds/" + filename + ".wav"));
                     clip.open(inputStream);
                     clip.start();
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
-                    System.out.println("Unable to play music!");
+                    System.out.println("Unable to play sound!");
                 }
             }
         }).start();
