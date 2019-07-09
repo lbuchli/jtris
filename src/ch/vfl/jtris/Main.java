@@ -1,7 +1,8 @@
 package ch.vfl.jtris;
 
-import ch.vfl.jtris.game.GameView;
+import ch.vfl.jtris.start.StartView;
 import javafx.application.Application;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -12,12 +13,23 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        GameView view = new GameView();
+        StartView view = new StartView();
 
+        stage.setHeight(440);
+        stage.setWidth(500);
         stage.setTitle("Jtris");
-        stage.setScene(view.start());
+        Scene currentScene = view.start();
+
+        view.setStage(stage);
+
+        stage.setScene(currentScene);
         stage.setOnShown((WindowEvent e) -> {
-            view.run();
+            try {
+                view.run();
+            }
+            catch (IOException z){
+                System.out.println("Frick...");
+            }
         });
         stage.show();
     }
@@ -25,5 +37,6 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch();
     }
+
 
 }
