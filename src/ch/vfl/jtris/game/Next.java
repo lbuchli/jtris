@@ -1,7 +1,6 @@
 package ch.vfl.jtris.game;
 
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
+import ch.vfl.jtris.util.Canvas;
 
 class Next implements IBlockFeeder {
     private static final int POLYOMINO_SIZE = 4;
@@ -13,11 +12,10 @@ class Next implements IBlockFeeder {
     private Block next;
 
     private Canvas canvas;
-    private GraphicsContext graphicsContext;
 
-    Next(Canvas next) {
-        this.canvas = next;
-        this.graphicsContext = this.canvas.getGraphicsContext2D();
+    Next(javafx.scene.canvas.Canvas next) {
+        this.canvas = new Canvas(next);
+        this.canvas.divideXToSquares(POLYOMINO_SIZE);
     }
 
     public Block generateNext() {
@@ -29,20 +27,15 @@ class Next implements IBlockFeeder {
 
     // drawNextBlock draws the next block onto the canvas via the graphicsContext.
     private void drawNextBlock() {
-        // clear canvas
-        graphicsContext.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        canvas.clear();
 
         // draw new block
         boolean[][] shape = next.getShape();
-        double width = canvas.getWidth() / shape.length;
-        double height = canvas.getHeight() / shape.length;
         for (int i = 0; i < shape.length; i++) {
             for (int j = 0; j < shape[i].length; j++) {
                 //TODO ALIGN THE SHAPE TO CENTER
                 if (shape[i][j]) {
-                    graphicsContext.setFill(next.getColor());
-                    graphicsContext.fillRect(i*width - SQUARE_PADDING, j*height - SQUARE_PADDING,
-                            width + 2*SQUARE_PADDING, height + 2*SQUARE_PADDING);
+                    canvas.drawFancySquare(i, j, next.getColor());
                 }
             }
         }

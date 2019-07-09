@@ -1,5 +1,6 @@
 package ch.vfl.jtris.game;
 
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
@@ -14,11 +15,15 @@ class Field {
     private int currentPosY;
 
     private Canvas canvas;
+    private GraphicsContext graphicsContext;
+
     private IBlockFeeder feeder;
     private IScoreRecipient score;
 
     Field(Canvas field, IBlockFeeder feeder) {
         this.canvas = field;
+        this.graphicsContext = this.canvas.getGraphicsContext2D();
+
         this.feeder = feeder;
 
         // make the field
