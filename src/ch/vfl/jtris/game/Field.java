@@ -4,6 +4,8 @@ import ch.vfl.jtris.util.Canvas;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 
+import java.util.Arrays;
+
 class Field {
     private static final int FIELD_TILE_WIDTH = 10;
 
@@ -58,7 +60,7 @@ class Field {
     void onKeyboardInput(KeyEvent keyEvent){
         switch(keyEvent.getCode()) {
             case W:
-                current.rotateShape(true);
+                if (isPossibleRotation(true)) current.rotateShape(true);
                 break;
 
             case A:
@@ -141,6 +143,51 @@ class Field {
             for (int y = 0; y < shape[x].length; y++) {
                 if (shape[x][y]) {
                     field[x+currentPosX][y+currentPosY] = color;
+                }
+            }
+        }
+
+        // check for lines to delete
+        deleteLines(getFullLines());
+    }
+
+    private boolean[] getFullLines() {
+        int ySquares = canvas.getYSquares();
+        boolean[] fullLines = new boolean[ySquares];
+        for (int i = 0; i < fullLines.length; i++) {
+            fullLines[i] = true;
+        }
+
+        for (int x = 0; x < field.length; x++) {
+            for (int y = 0; y < field[x].length; y++) {
+                if (field[x][y] == null) {
+                    fullLines[y] = false;
+                }
+            }
+        }
+
+        return fullLines;
+    }
+
+    private void deleteLines(boolean[] lines) {
+        for (int x = 0; x < field.length; x++) {
+            for (int y = 0; y < field[x].length; y++) {
+                if (lines[y]) {
+                    Color[] newLine = new Color[field[x].length];
+                    newLine[0] = null;
+
+                    // up to line deletion
+                    for (int i = 0; i < y; i++) {
+                        newLine[i+1] = field[x][i];
+                    }
+
+                    // down onwards from line deletion
+                    for (int i = y; y < field.length; i++) {
+                        newLine[i] = field[x][i];
+                    }
+
+                    // overwrite line
+                    field[x] = newLine;
                 }
             }
         }
