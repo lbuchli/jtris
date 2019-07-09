@@ -1,6 +1,39 @@
 package ch.vfl.jtris.start;
 
-public class StartView {
+import ch.vfl.jtris.game.GameView;
+import ch.vfl.jtris.Main;
 
-    // TODO do start view (low priority)
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
+public class StartView{
+
+    private GameView game;
+    private Scene sOne;
+
+    Stage stage;
+
+    public Scene start() throws IOException {
+        game = new GameView();
+        sOne = game.start();
+
+        Parent root = FXMLLoader.load(getClass().getResource("StartView.fxml"));
+        Scene scene = new Scene(root, 240, 400);
+
+        scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
+            stage.setScene(sOne);
+            game.run();
+        });
+
+        return scene;
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
 }
