@@ -1,6 +1,7 @@
 package ch.vfl.jtris;
 
 import ch.vfl.jtris.start.StartView;
+import ch.vfl.jtris.util.Settings;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -25,6 +26,7 @@ public class Main extends Application implements IViewController {
     }
 
     public static void main(String[] args) {
+        Settings.getInstance(); // generate a Settings instance
         launch();
     }
 
