@@ -141,7 +141,7 @@ class Field {
         for (int x = 0; x < field.length; x++) {
             for (int y = 0; y < field[x].length; y++) {
                 if (field[x][y] != null) {
-                    canvas.drawSquare(x, y, field[x][y]);
+                    canvas.drawFancySquare(x, y, field[x][y]);
                 }
             }
         }
@@ -150,7 +150,7 @@ class Field {
         for (int x = 0; x < shape.length; x++) {
             for (int y = 0; y < shape[x].length; y++) {
                 if (shape[x][y]) {
-                    canvas.drawSquare(x+currentPosX, y+currentPosY, current.getColor());
+                    canvas.drawFancySquare(x+currentPosX, y+currentPosY, current.getColor());
                 }
             }
         }
