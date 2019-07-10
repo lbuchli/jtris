@@ -24,11 +24,6 @@ public class Canvas {
         this.graphicsContext = this.canvas.getGraphicsContext2D();
     }
 
-    public void drawRect(double x, double y, double w, double h, Color color) {
-        graphicsContext.setFill(color);
-        graphicsContext.fillRect(x, y, w, h);
-    }
-
     // divideXToSquares divides the canvas into even squares, using
     // the whole width
     public void divideXToSquares(int x) {

@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.vfl.jtris.start.StartView">
+<AnchorPane prefHeight="400.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.vfl.jtris.start.StartView">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6992b9" height="400.0" stroke="BLACK" strokeType="INSIDE" width="483.0" />
         <AnchorPane layoutX="37.0" layoutY="56.0" prefHeight="144.0" prefWidth="339.0">
@@ -47,16 +49,22 @@
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="24.0" layoutX="324.0" layoutY="84.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
             </children>
         </AnchorPane>
-      <CheckBox layoutX="167.0" layoutY="231.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="149.0" text="Musik An/Aus">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </CheckBox>
-      <ChoiceBox layoutX="167.0" layoutY="267.0" prefWidth="150.0" />
-      <Button layoutX="202.0" layoutY="329.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Zurück">
+      <ChoiceBox id="musicchoice" layoutX="230.0" layoutY="267.0" prefHeight="26.0" prefWidth="142.0" />
+      <Button id="back" layoutX="202.0" layoutY="314.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Back">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
+      <Slider id="volume" layoutX="231.0" layoutY="233.0" prefHeight="16.0" prefWidth="142.0" />
+      <Text layoutX="132.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Volume">
+         <font>
+            <Font name="DejaVu Sans ExtraLight" size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="86.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Music Track">
+         <font>
+            <Font name="DejaVu Sans ExtraLight" size="22.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>

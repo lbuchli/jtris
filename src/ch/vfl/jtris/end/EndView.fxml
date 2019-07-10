@@ -90,7 +90,7 @@
         </Text>
       <TextField id="name" layoutX="166.0" layoutY="330.0" text="NAME" />
       <Text layoutX="191.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type in your name:" />
-      <Button layoutX="166.0" layoutY="361.0" mnemonicParsing="false" text="Main Menu" />
-      <Button layoutX="270.0" layoutY="361.0" mnemonicParsing="false" text="Retry" />
+      <Button layoutX="166.0" layoutY="361.0" mnemonicParsing="false" text="Main Menu" id="menu" />
+      <Button layoutX="270.0" layoutY="361.0" mnemonicParsing="false" text="Retry" id="retry" />
     </children>
 </AnchorPane>
