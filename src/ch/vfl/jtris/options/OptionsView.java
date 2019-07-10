@@ -1,5 +1,7 @@
 package ch.vfl.jtris.options;
 
+import ch.vfl.jtris.IView;
+import ch.vfl.jtris.IViewController;
 import ch.vfl.jtris.start.StartView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,7 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Options{
+public class OptionsView implements IView {
 
     ObservableList<String> musicList = FXCollections.observableArrayList("A-Theme", "Katyusha");
     private StartView view;
@@ -52,6 +54,9 @@ public class Options{
 
         return scene;
     }
+
+    @Override
+    public void run(IViewController controller) throws InterruptedException {}
 
     public void setStage(Stage stage) {
         this.stage = stage;

@@ -1,54 +1,41 @@
 package ch.vfl.jtris.start;
 
+import ch.vfl.jtris.IView;
+import ch.vfl.jtris.IViewController;
 import ch.vfl.jtris.game.GameView;
-import ch.vfl.jtris.options.Options;
+import ch.vfl.jtris.options.OptionsView;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class StartView{
+public class StartView implements IView {
 
-    private GameView game;
-    private Options options;
+    private Scene currentScene;
 
-    private Scene sOne, sTwo;
-
-    Stage stage;
+    private Button startButton;
+    private Button optionsButton;
 
     public Scene start() throws IOException {
-        game = new GameView();
-        options = new Options();
-        sOne = game.start();
-        sTwo = options.start();
-
         Parent root = FXMLLoader.load(getClass().getResource("StartView.fxml"));
-        Scene scene = new Scene(root, 240, 400);
+        currentScene = new Scene(root, 240, 400);
 
-        Button button = new Button("Options");
+        startButton = (Button) root.lookup("#start");
+        optionsButton = (Button) root.lookup("#options");
 
-        button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                options.setStage(stage);
-                stage.setScene(sTwo);
-            }
-        });
-
-        scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
-            stage.setScene(sOne);
-            game.run();
-        });
-        return scene;
+        return currentScene;
     }
 
-    public void setStage(Stage stage) {
-        this.stage = stage;
+    @Override
+    public void run(IViewController controller) throws InterruptedException {
+        currentScene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
+            controller.setView(new GameView());
+        });
+        startButton.setOnAction((ActionEvent e) -> controller.setView(new GameView()));
+        optionsButton.setOnAction((ActionEvent e) -> controller.setView(new OptionsView()));
     }
 }

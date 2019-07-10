@@ -1,6 +1,10 @@
 package ch.vfl.jtris.game;
 
+import ch.vfl.jtris.IViewController;
 import ch.vfl.jtris.Main;
+import ch.vfl.jtris.IView;
+import ch.vfl.jtris.end.EndView;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,7 +18,7 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 import java.io.IOException;
 
-public class GameView {
+public class GameView implements IView {
 
     private Field field;
     private Next next;
@@ -40,9 +44,12 @@ public class GameView {
         return scene;
     }
 
-    public void run() {
-        new Thread(() -> field.run()).start();
 
+    public void run(IViewController controller) {
+        new Thread(() -> {
+            field.run();
+            Platform.runLater(() -> controller.setView(new EndView()));
+        }).start();
         playmusic("katyusha", -0.0f);
     }
 
