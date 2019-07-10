@@ -1,8 +1,13 @@
 package ch.vfl.jtris.game;
 
+import ch.vfl.jtris.Main;
 import ch.vfl.jtris.util.Canvas;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 class Field {
     private static final int FIELD_TILE_WIDTH = 10;
@@ -113,12 +118,12 @@ class Field {
                         fieldPosY >= field[fieldPosX].length || fieldPosY < 0 ||
                         field[fieldPosX][fieldPosY] != null) {
 
+                        playsound("error");
                         return false;
                     }
                 }
             }
         }
-
         return true;
     }
 
@@ -218,5 +223,18 @@ class Field {
 
     public void setScoreRecipient(IScoreRecipient recipient) {
         this.score = recipient;
+    }
+
+
+    private void playsound(String filename) {
+        new Thread(() -> {
+            try {
+                Clip clip = AudioSystem.getClip();
+                AudioInputStream inputStream = AudioSystem.getAudioInputStream(
+                        Main.class.getResourceAsStream("/sounds/" + filename + ".wav"));
+                clip.open(inputStream);
+                clip.start();
+            } catch (Exception e) {}
+        }).start();
     }
 }
