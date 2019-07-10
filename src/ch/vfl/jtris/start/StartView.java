@@ -27,7 +27,6 @@ public class StartView{
             stage.setScene(sOne);
             game.run();
         });
-
         return scene;
     }
 
