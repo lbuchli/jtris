@@ -2,6 +2,7 @@ package ch.vfl.jtris.game;
 
 import ch.vfl.jtris.Main;
 import ch.vfl.jtris.util.Canvas;
+
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 
@@ -37,6 +38,7 @@ class Field {
         spawnNewBlock();
 
         boolean interrupted = false;
+        int speed = 400;
 
         while (!interrupted) {
             if (isPossibleMove(0, 1)) {
@@ -49,9 +51,12 @@ class Field {
                 if (!isPossibleMove(0, 0)) interrupted = true;
             }
 
+            speed = setSpeed();
+
             // we can do that because JavaFX runs our stuff in parallel
             try {
-                Thread.sleep(400);
+
+                Thread.sleep(speed);
             } catch (InterruptedException e) {
                 interrupted = true;
             }
@@ -237,4 +242,14 @@ class Field {
             } catch (Exception e) {}
         }).start();
     }
+
+    private int setSpeed(){;
+        int newspeed = 1000 - score.getScore() / 5;
+
+
+
+
+        return newspeed;
+    }
+
 }

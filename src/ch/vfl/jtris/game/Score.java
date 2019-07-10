@@ -25,9 +25,14 @@ class Score implements IScoreRecipient {
     public void addScore(int score) {
         setScore(this.score + score);
     }
+
+    public int getScore() {
+        return score;
+    }
 }
 
 interface IScoreRecipient {
     void setScore(int score);
     void addScore(int score);
+    int getScore();
 }
