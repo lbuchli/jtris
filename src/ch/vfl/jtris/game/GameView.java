@@ -43,7 +43,6 @@ public class GameView {
         new Thread(() -> field.run()).start();
 
         playmusic();
-        playsound("achive");
     }
 
     private void playmusic(/*String filename*/){
@@ -59,16 +58,6 @@ public class GameView {
         }).start();
     }
 
-    public void playsound(String filename) {
-        new Thread(() -> {
-            try {
-                Clip clip = AudioSystem.getClip();
-                AudioInputStream inputStream = AudioSystem.getAudioInputStream(
-                        Main.class.getResourceAsStream("/sounds/" + filename + ".wav"));
-                clip.open(inputStream);
-                clip.start();
-            } catch (Exception e) {}
-        }).start();
-    }
+
 }
 
