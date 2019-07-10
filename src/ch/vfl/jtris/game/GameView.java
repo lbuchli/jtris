@@ -11,6 +11,7 @@ import javafx.scene.text.Text;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import java.io.IOException;
 
 public class GameView {
@@ -42,16 +43,20 @@ public class GameView {
     public void run() {
         new Thread(() -> field.run()).start();
 
-        playmusic("katyusha");
+        playmusic("katyusha", -0.0f);
     }
 
-    private void playmusic(String musicname){
+    private void playmusic(String musicname, float volume){
         new Thread(() -> {
             try {
+
                 Clip clip = AudioSystem.getClip();
                 AudioInputStream inputStream = AudioSystem.getAudioInputStream(
                         Main.class.getResourceAsStream("/music/" + musicname + ".wav"));
                 clip.open(inputStream);
+                FloatControl gainControl =
+                        (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+                gainControl.setValue(volume);
                 clip.loop(20000);
                 clip.start();
             } catch (Exception e) {}
