@@ -42,15 +42,15 @@ public class GameView {
     public void run() {
         new Thread(() -> field.run()).start();
 
-        playmusic();
+        playmusic("katyusha");
     }
 
-    private void playmusic(/*String filename*/){
+    private void playmusic(String musicname){
         new Thread(() -> {
             try {
                 Clip clip = AudioSystem.getClip();
                 AudioInputStream inputStream = AudioSystem.getAudioInputStream(
-                        Main.class.getResourceAsStream("/music/final_atheme.wav"));
+                        Main.class.getResourceAsStream("/music/" + musicname + ".wav"));
                 clip.open(inputStream);
                 clip.loop(20000);
                 clip.start();
