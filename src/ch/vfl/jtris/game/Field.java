@@ -2,7 +2,6 @@ package ch.vfl.jtris.game;
 
 import ch.vfl.jtris.Main;
 import ch.vfl.jtris.util.Canvas;
-
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 
@@ -38,7 +37,7 @@ class Field {
         spawnNewBlock();
 
         boolean interrupted = false;
-        int speed = 400;
+        int speed;
 
         while (!interrupted) {
             if (isPossibleMove(0, 1)) {
@@ -51,7 +50,8 @@ class Field {
                 if (!isPossibleMove(0, 0)) interrupted = true;
             }
 
-            speed = setSpeed();
+            // speed up falling of the blocks
+            speed = nextSpeed();
 
             // we can do that because JavaFX runs our stuff in parallel
             try {
@@ -123,7 +123,7 @@ class Field {
                         fieldPosY >= field[fieldPosX].length || fieldPosY < 0 ||
                         field[fieldPosX][fieldPosY] != null) {
 
-                        playsound("error");
+                        playSound("error");
                         return false;
                     }
                 }
@@ -231,7 +231,7 @@ class Field {
     }
 
 
-    private void playsound(String filename) {
+    private void playSound(String filename) {
         new Thread(() -> {
             try {
                 Clip clip = AudioSystem.getClip();
@@ -243,13 +243,7 @@ class Field {
         }).start();
     }
 
-    private int setSpeed(){
-        int newspeed = 1000 - score.getScore() / 5;
-
-
-
-
-        return newspeed;
+    private int nextSpeed() {
+        return 1000 - score.getScore() / 5;
     }
-
 }

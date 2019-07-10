@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 import java.io.IOException;
@@ -31,9 +32,11 @@ public class StartView implements IView {
     }
 
     @Override
-    public void run(IViewController controller) throws InterruptedException {
+    public void run(IViewController controller) {
         currentScene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
-            controller.setView(new GameView());
+            if (key.getCode() == KeyCode.S) {
+                controller.setView(new GameView());
+            }
         });
         startButton.setOnAction((ActionEvent e) -> controller.setView(new GameView()));
         optionsButton.setOnAction((ActionEvent e) -> controller.setView(new OptionsView()));

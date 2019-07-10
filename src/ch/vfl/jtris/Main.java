@@ -13,7 +13,7 @@ public class Main extends Application implements IViewController {
     private Stage stage;
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
         this.stage = stage;
 
         stage.setHeight(440);
@@ -35,8 +35,6 @@ public class Main extends Application implements IViewController {
             stage.setScene(view.start());
             view.run(this);
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }

@@ -9,7 +9,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.text.Text;
 
 import java.io.IOException;
 
@@ -33,7 +32,7 @@ public class EndView implements IView {
     }
 
     @Override
-    public void run(IViewController controller) throws InterruptedException {
+    public void run(IViewController controller) {
         menuButton.setOnAction((ActionEvent e) -> controller.setView(new StartView()));
         retryButton.setOnAction((ActionEvent e) -> controller.setView(new GameView()));
     }

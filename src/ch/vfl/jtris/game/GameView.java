@@ -1,8 +1,8 @@
 package ch.vfl.jtris.game;
 
+import ch.vfl.jtris.IView;
 import ch.vfl.jtris.IViewController;
 import ch.vfl.jtris.Main;
-import ch.vfl.jtris.IView;
 import ch.vfl.jtris.end.EndView;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -50,16 +50,16 @@ public class GameView implements IView {
             field.run();
             Platform.runLater(() -> controller.setView(new EndView()));
         }).start();
-        playmusic("katyusha", -0.0f);
+        playMusic("katyusha", -0.0f);
     }
 
-    private void playmusic(String musicname, float volume){
+    private void playMusic(String musicname, float volume){
         new Thread(() -> {
             try {
 
                 Clip clip = AudioSystem.getClip();
                 AudioInputStream inputStream = AudioSystem.getAudioInputStream(
-                        Main.class.getResourceAsStream("/music/" + musicname + ".wav"));
+                        ClassLoader.getSystemClassLoader().getResourceAsStream("/music/" + musicname + ".wav"));
                 clip.open(inputStream);
                 FloatControl gainControl =
                         (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);

@@ -1,7 +1,5 @@
 package ch.vfl.jtris.util;
 
-import ch.vfl.jtris.Main;
-
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;

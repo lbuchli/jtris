@@ -41,7 +41,7 @@ public class OptionsView implements IView {
     }
 
     @Override
-    public void run(IViewController controller) throws InterruptedException {
+    public void run(IViewController controller) {
         backButton.setOnAction((ActionEvent e) -> {
             controller.setView(new StartView());
 
