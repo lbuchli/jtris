@@ -26,7 +26,7 @@ public class OptionsView implements IView {
 
     public Scene start() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("OptionsView.fxml"));
-        Scene scene = new Scene(root, 240, 400);
+        Scene scene = new Scene(root, 500, 500);
 
         musicChoiceBox = (ChoiceBox<String>) root.lookup("#musicchoice");
         musicVolumeSlider = (Slider) root.lookup("#volume");

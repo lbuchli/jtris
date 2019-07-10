@@ -23,7 +23,7 @@ public class StartView implements IView {
 
     public Scene start() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("StartView.fxml"));
-        currentScene = new Scene(root, 240, 400);
+        currentScene = new Scene(root, 500, 500);
 
         startButton = (Button) root.lookup("#start");
         optionsButton = (Button) root.lookup("#options");

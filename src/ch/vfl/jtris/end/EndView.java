@@ -21,7 +21,7 @@ public class EndView implements IView {
     @Override
     public Scene start() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("EndView.fxml"));
-        Scene scene = new Scene(root, 240, 400);
+        Scene scene = new Scene(root, 500, 500);
 
         menuButton = (Button) root.lookup("#menu");
         retryButton = (Button) root.lookup("#retry");

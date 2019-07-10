@@ -28,7 +28,7 @@ public class GameView implements IView {
 
     public Scene start() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("GameView.fxml"));
-        Scene scene = new Scene(root, 240, 400);
+        Scene scene = new Scene(root, 500, 500);
 
         score = new Score((Text) scene.lookup("#score"));
         next = new Next((Canvas) scene.lookup("#next"));

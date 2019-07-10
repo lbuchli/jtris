@@ -7,10 +7,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.vfl.jtris.start.StartView">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.vfl.jtris.start.StartView">
     <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6992b9" height="400.0" stroke="BLACK" strokeType="INSIDE" width="483.0" />
-      <AnchorPane layoutX="67.0" layoutY="-14.0" prefHeight="264.0" prefWidth="348.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6992b9" height="500.0" stroke="BLACK" strokeType="INSIDE" width="500.0" />
+      <AnchorPane layoutX="76.0" prefHeight="264.0" prefWidth="348.0">
          <children>
             <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#ff9900" height="24.0" layoutX="2.0" layoutY="96.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
             <Rectangle arcHeight="12.0" arcWidth="12.0" fill="YELLOW" height="24.0" layoutX="90.0" layoutY="96.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
@@ -84,17 +84,17 @@
             <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#ff9900" height="24.0" layoutX="324.0" layoutY="235.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
          </children>
       </AnchorPane>
-        <Text id="finalscore" fill="WHITE" layoutX="71.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="339.0908203125">
+        <Text id="finalscore" fill="WHITE" layoutX="85.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="339.0908203125">
             <font>
                 <Font name="DejaVu Sans Bold" size="24.0" />
             </font>
         </Text>
-      <TextField id="name" layoutX="156.0" layoutY="322.0" text="NAME" />
-      <Text fill="WHITE" layoutX="192.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your name:">
+      <TextField id="name" layoutX="165.0" layoutY="360.0" text="NAME" />
+      <Text fill="WHITE" layoutX="201.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your name:">
          <font>
             <Font name="DejaVu Sans Bold" size="15.0" />
          </font></Text>
-      <Button id="menu" layoutX="148.0" layoutY="361.0" mnemonicParsing="false" text="Main Menu" />
-      <Button id="retry" layoutX="245.0" layoutY="361.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" text="Retry" />
+      <Button id="menu" layoutX="158.0" layoutY="418.0" mnemonicParsing="false" text="Main Menu" />
+      <Button id="retry" layoutX="255.0" layoutY="418.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" text="Retry" />
     </children>
 </AnchorPane>

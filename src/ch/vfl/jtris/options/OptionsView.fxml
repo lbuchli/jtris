@@ -8,10 +8,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.vfl.jtris.start.StartView">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.vfl.jtris.start.StartView">
     <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6992b9" height="400.0" stroke="BLACK" strokeType="INSIDE" width="483.0" />
-        <AnchorPane layoutX="37.0" layoutY="56.0" prefHeight="144.0" prefWidth="339.0">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6992b9" height="500.0" stroke="BLACK" strokeType="INSIDE" width="500.0" />
+        <AnchorPane layoutX="35.0" layoutY="35.0" prefHeight="144.0" prefWidth="415.0">
             <children>
                 <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#ff9900" height="24.0" layoutX="49.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
                 <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#ff9900" height="24.0" layoutX="73.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
@@ -49,19 +49,19 @@
                 <Rectangle arcHeight="12.0" arcWidth="12.0" fill="BLUE" height="24.0" layoutX="324.0" layoutY="84.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
             </children>
         </AnchorPane>
-      <ChoiceBox id="musicchoice" layoutX="242.0" layoutY="267.0" prefHeight="26.0" prefWidth="142.0" />
-      <Button id="back" layoutX="202.0" layoutY="314.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Back">
+      <ChoiceBox id="musicchoice" layoutX="243.0" layoutY="299.0" prefHeight="26.0" prefWidth="142.0" />
+      <Button id="back" layoutX="203.0" layoutY="387.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Back">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Slider id="volume" layoutX="243.0" layoutY="233.0" prefHeight="16.0" prefWidth="142.0" />
-      <Text fill="WHITE" layoutX="144.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Volume">
+      <Slider id="volume" layoutX="243.0" layoutY="255.0" prefHeight="16.0" prefWidth="142.0" />
+      <Text fill="WHITE" layoutX="144.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Volume">
          <font>
             <Font name="DejaVu Sans" size="22.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="98.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Music Track">
+      <Text fill="WHITE" layoutX="99.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Music Track">
          <font>
             <Font name="DejaVu Sans" size="22.0" />
          </font>
