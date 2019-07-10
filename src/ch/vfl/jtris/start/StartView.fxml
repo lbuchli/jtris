@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
@@ -46,10 +47,15 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="24.0" layoutX="324.0" layoutY="84.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
          </children>
       </AnchorPane>
-        <Text layoutX="72.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Press &quot;Enter&quot; to start" textAlignment="CENTER" wrappingWidth="339.0908203125">
+        <Text layoutX="72.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Press &quot;S&quot; to start" textAlignment="CENTER" wrappingWidth="339.0908203125">
             <font>
                 <Font name="DejaVu Sans ExtraLight" size="18.0" />
             </font>
         </Text>
+      <Button layoutX="205.0" layoutY="277.0" mnemonicParsing="false" text="Options">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>
