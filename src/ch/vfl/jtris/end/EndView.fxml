@@ -83,14 +83,14 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff9900" height="24.0" layoutX="324.0" layoutY="235.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
          </children>
       </AnchorPane>
-        <Text id="score" layoutX="71.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="339.0908203125">
+        <Text id="finalscore" layoutX="71.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="339.0908203125">
             <font>
                 <Font name="DejaVu Sans ExtraLight" size="18.0" />
             </font>
         </Text>
       <TextField id="name" layoutX="166.0" layoutY="330.0" text="NAME" />
       <Text layoutX="191.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type in your name:" />
-      <Button layoutX="166.0" layoutY="361.0" mnemonicParsing="false" text="Main Menu" id="menu" />
-      <Button layoutX="270.0" layoutY="361.0" mnemonicParsing="false" text="Retry" id="retry" />
+      <Button id="menu" layoutX="166.0" layoutY="361.0" mnemonicParsing="false" text="Main Menu" />
+      <Button id="retry" layoutX="270.0" layoutY="361.0" mnemonicParsing="false" text="Retry" />
     </children>
 </AnchorPane>

@@ -243,7 +243,7 @@ class Field {
         }).start();
     }
 
-    private int setSpeed(){;
+    private int setSpeed(){
         int newspeed = 1000 - score.getScore() / 5;
 
 
