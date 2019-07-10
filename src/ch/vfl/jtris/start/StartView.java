@@ -1,37 +1,30 @@
 package ch.vfl.jtris.start;
 
+import ch.vfl.jtris.IView;
+import ch.vfl.jtris.IViewController;
 import ch.vfl.jtris.game.GameView;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class StartView{
+public class StartView implements IView {
 
-    private GameView game;
-    private Scene sOne;
-
-    Stage stage;
+    private Scene currentScene;
 
     public Scene start() throws IOException {
-        game = new GameView();
-        sOne = game.start();
-
         Parent root = FXMLLoader.load(getClass().getResource("StartView.fxml"));
-        Scene scene = new Scene(root, 240, 400);
-
-        scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
-            stage.setScene(sOne);
-            game.run();
-        });
-
-        return scene;
+        currentScene = new Scene(root, 240, 400);
+        return currentScene;
     }
 
-    public void setStage(Stage stage) {
-        this.stage = stage;
+    @Override
+    public void run(IViewController controller) throws InterruptedException {
+        GameView gameView = new GameView();
+        currentScene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
+            controller.setView(gameView);
+        });
     }
 }

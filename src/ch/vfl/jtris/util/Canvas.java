@@ -53,7 +53,6 @@ public class Canvas {
     }
 
     public void drawFancySquare(int x, int y, Color color) {
-        // TODO stub
         graphicsContext.setFill(color);
         graphicsContext.setStroke(new Color(0, 0, 0, 1));
         graphicsContext.setLineWidth(FANCY_SQUARE_BORDER_WIDTH);
