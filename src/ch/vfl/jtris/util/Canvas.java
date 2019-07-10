@@ -8,6 +8,8 @@ public class Canvas {
     // Adding padding to the squares fixes rounding errors when drawing to the screen.
     // These rounding errors caused small gaps between the squares.
     private static final double SQUARE_PADDING = 0.5;
+    private static final double FANCY_SQUARE_BORDER_WIDTH = 1.4;
+    private static final double FANCY_SQUARE_ARC_SIZE = 12.0;
 
     private javafx.scene.canvas.Canvas canvas;
     private GraphicsContext graphicsContext;
@@ -52,7 +54,26 @@ public class Canvas {
 
     public void drawFancySquare(int x, int y, Color color) {
         // TODO stub
-        drawSquare(x, y, color);
+        graphicsContext.setFill(color);
+        graphicsContext.setStroke(new Color(0, 0, 0, 1));
+        graphicsContext.setLineWidth(FANCY_SQUARE_BORDER_WIDTH);
+
+        double rX      = x*squareSize - SQUARE_PADDING + xOffset + FANCY_SQUARE_BORDER_WIDTH/2;
+        double rY      = y*squareSize - SQUARE_PADDING + yOffset + FANCY_SQUARE_BORDER_WIDTH/2;
+        double rWidth  = squareSize + 2*SQUARE_PADDING - FANCY_SQUARE_BORDER_WIDTH;
+        double rHeight = squareSize + 2*SQUARE_PADDING - FANCY_SQUARE_BORDER_WIDTH;
+        double rArc    = FANCY_SQUARE_ARC_SIZE;
+
+        graphicsContext.fillRoundRect(
+                rX,     rY,      // position
+                rWidth, rHeight, // size
+                rArc,   rArc     // arc
+        );
+        graphicsContext.strokeRoundRect(
+                rX,     rY,      // position
+                rWidth, rHeight, // size
+                rArc,   rArc     // arc
+        );
     }
 
     public void clear() {
