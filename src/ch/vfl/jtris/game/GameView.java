@@ -41,38 +41,33 @@ public class GameView {
 
     public void run() {
         new Thread(() -> field.run()).start();
-            playmusic();
-            playsound("achive");
+
+        playmusic();
+        playsound("achive");
     }
 
     private void playmusic(/*String filename*/){
-        new Thread(new Runnable() {
-            public void run() {
-                try {
-                    Clip clip = AudioSystem.getClip();
-                    AudioInputStream inputStream = AudioSystem.getAudioInputStream(
-                            Main.class.getResourceAsStream("/music/final_atheme.wav"));
-                    clip.open(inputStream);
-                    clip.loop(20000);
-                    clip.start();
-                } catch (Exception e) {
-                }
-            }
+        new Thread(() -> {
+            try {
+                Clip clip = AudioSystem.getClip();
+                AudioInputStream inputStream = AudioSystem.getAudioInputStream(
+                        Main.class.getResourceAsStream("/music/final_atheme.wav"));
+                clip.open(inputStream);
+                clip.loop(20000);
+                clip.start();
+            } catch (Exception e) {}
         }).start();
     }
 
     public void playsound(String filename) {
-        new Thread(new Runnable() {
-            public void run() {
-                try {
-                    Clip clip = AudioSystem.getClip();
-                    AudioInputStream inputStream = AudioSystem.getAudioInputStream(
-                            Main.class.getResourceAsStream("/sounds/" + filename + ".wav"));
-                    clip.open(inputStream);
-                    clip.start();
-                } catch (Exception e) {
-                }
-            }
+        new Thread(() -> {
+            try {
+                Clip clip = AudioSystem.getClip();
+                AudioInputStream inputStream = AudioSystem.getAudioInputStream(
+                        Main.class.getResourceAsStream("/sounds/" + filename + ".wav"));
+                clip.open(inputStream);
+                clip.start();
+            } catch (Exception e) {}
         }).start();
     }
 }

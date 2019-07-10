@@ -1,6 +1,7 @@
 package ch.vfl.jtris.game;
 
 import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -21,6 +22,17 @@ class Block {
         int shape = random.nextInt(7);
         this.shape = Shapes.SHAPE_LIST[shape];
         this.color = Shapes.SHAPE_COLORS[shape];
+    }
+
+    public Block(Block block) {
+        // clone the shape
+        boolean[][] oldShape = block.getShape();
+        this.shape = new boolean[oldShape.length][oldShape[0].length];
+        for (int i = 0; i < oldShape.length; i++) {
+            this.shape[i] = oldShape[i].clone();
+        }
+
+        this.color = block.getColor();
     }
 
     // rotateShape rotates the shape 90 degrees.

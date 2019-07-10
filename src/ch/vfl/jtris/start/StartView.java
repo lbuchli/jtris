@@ -1,8 +1,6 @@
 package ch.vfl.jtris.start;
 
 import ch.vfl.jtris.game.GameView;
-import ch.vfl.jtris.Main;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

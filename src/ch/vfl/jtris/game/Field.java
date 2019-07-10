@@ -4,8 +4,6 @@ import ch.vfl.jtris.util.Canvas;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 
-import java.util.Arrays;
-
 class Field {
     private static final int FIELD_TILE_WIDTH = 10;
 
@@ -14,9 +12,6 @@ class Field {
 
     private int currentPosX;
     private int currentPosY;
-
-    private int nextXOffset;
-    private int nextYOffset;
 
     private Canvas canvas;
 
@@ -44,6 +39,9 @@ class Field {
             } else {
                 cloneBlockToField();
                 spawnNewBlock();
+
+                // check if spawned block is spawned into another block
+                if (!isPossibleMove(0, 0)) interrupted = true;
             }
 
             // we can do that because JavaFX runs our stuff in parallel
@@ -101,7 +99,26 @@ class Field {
     }
 
     private boolean isPossibleRotation(boolean clockwise) {
-        // TODO check
+        Block rotatedBlock = new Block(current);
+        rotatedBlock.rotateShape(clockwise);
+        boolean[][] shape = rotatedBlock.getShape();
+
+        for (int x = 0; x < shape.length; x++) {
+            for (int y = 0; y < shape[x].length; y++) {
+                if (shape[x][y]) {
+                    int fieldPosX = currentPosX + x;
+                    int fieldPosY = currentPosY + y;
+
+                    if (fieldPosX >= field.length || fieldPosX < 0 ||
+                        fieldPosY >= field[fieldPosX].length || fieldPosY < 0 ||
+                        field[fieldPosX][fieldPosY] != null) {
+
+                        return false;
+                    }
+                }
+            }
+        }
+
         return true;
     }
 
@@ -188,7 +205,7 @@ class Field {
                     }
 
                     // down onwards from line deletion
-                    for (int i = y; y < field.length; i++) {
+                    for (int i = y+1; i < field[x].length; i++) {
                         newLine[i] = field[x][i];
                     }
 
