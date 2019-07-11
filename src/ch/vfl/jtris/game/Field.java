@@ -10,9 +10,15 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
+import java.sql.Time;
 
 class Field {
     private static final int FIELD_TILE_WIDTH = 10;
+
+    private static final long LINE_DELETE_INTERVAL_DURATION = 150;
+    private static final int  LINE_DELETE_INTERVALS = 3;
+
+    private static final Color BACKGROUND_COLOR = new Color(105/256d, 146/256d, 185/256d, 1);
 
     private Color[][] field;
     private Block current;
@@ -135,8 +141,6 @@ class Field {
     }
 
     private void drawField() {
-        boolean[][] shape = current.getShape();
-
         canvas.clear();
 
         // draw the field
@@ -148,11 +152,14 @@ class Field {
             }
         }
 
-        // draw the current block
-        for (int x = 0; x < shape.length; x++) {
-            for (int y = 0; y < shape[x].length; y++) {
-                if (shape[x][y]) {
-                    canvas.drawFancySquare(x+currentPosX, y+currentPosY, current.getColor());
+        // draw current block
+        if (current != null) {
+            boolean[][] shape = current.getShape();
+            for (int x = 0; x < shape.length; x++) {
+                for (int y = 0; y < shape[x].length; y++) {
+                    if (shape[x][y]) {
+                        canvas.drawFancySquare(x+currentPosX, y+currentPosY, current.getColor());
+                    }
                 }
             }
         }
@@ -176,14 +183,21 @@ class Field {
             }
         }
 
+        // clear the block
+        current = null;
+
         // check for lines to delete
+        boolean hasLinesToDelete = false;
         boolean[] fullLines = getFullLines();
         for (boolean line : fullLines) {
             if (line) {
                 score.addScore(100);
+                hasLinesToDelete = true;
             }
         }
-        deleteLines(fullLines);
+
+        // delete full lines
+        if (hasLinesToDelete) deleteLines(fullLines);
     }
 
     private boolean[] getFullLines() {
@@ -205,6 +219,14 @@ class Field {
     }
 
     private void deleteLines(boolean[] lines) {
+        // blink
+        try {
+            blinkLines(lines, LINE_DELETE_INTERVAL_DURATION, LINE_DELETE_INTERVALS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // delete and fall down
         for (int x = 0; x < field.length; x++) {
             for (int y = 0; y < field[x].length; y++) {
                 if (lines[y]) {
@@ -225,6 +247,23 @@ class Field {
                     field[x] = newLine;
                 }
             }
+        }
+
+        drawField();
+    }
+
+    private void blinkLines(boolean[] lines, long intervalDuration, int intervals) throws InterruptedException {
+        for (int i = 0; i < intervals; i++) {
+            for (int y = 0; y < lines.length; y++) {
+                if (lines[y]) {
+                    for (int x = 0; x < field.length; x++) {
+                        canvas.drawSquare(x, y, BACKGROUND_COLOR);
+                    }
+                }
+            }
+            Thread.sleep(intervalDuration);
+            drawField();
+            Thread.sleep(intervalDuration);
         }
     }
 
