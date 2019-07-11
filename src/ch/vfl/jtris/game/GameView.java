@@ -49,6 +49,7 @@ public class GameView implements IView {
             field.run();
             Platform.runLater(() -> controller.setView(new EndView(score.getScore())));
         }).start();
+
        playMusic(
                "katyusha",
                (1f - Float.parseFloat(Settings.getInstance().get("music_volume"))) * (-60)
