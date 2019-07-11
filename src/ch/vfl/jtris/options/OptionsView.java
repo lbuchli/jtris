@@ -48,9 +48,18 @@ public class OptionsView implements IView {
         backButton.setOnAction((ActionEvent e) -> {
             controller.setView(new StartView());
 
+            String music = musicChoiceBox.getValue().toString();
+
+            if (music == "A-Theme"){
+                music = "atheme";
+            }
+            else {
+                music = "katyusha";
+            }
+
             Settings settings = Settings.getInstance();
             settings.set("effect_volume", Double.toString(effectVolumeSlider.getValue()));
-            settings.set("music_track", musicChoiceBox.getValue().toString());
+            settings.set("music_track", music);
             settings.set("music_volume", Double.toString(musicVolumeSlider.getValue()));
 
             try {
