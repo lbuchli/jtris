@@ -4,6 +4,7 @@ import ch.vfl.jtris.IView;
 import ch.vfl.jtris.IViewController;
 import ch.vfl.jtris.game.GameView;
 import ch.vfl.jtris.start.StartView;
+import ch.vfl.jtris.util.Leaderboard;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -42,6 +43,8 @@ public class EndView implements IView {
     public void run(IViewController controller) {
         menuButton.setOnAction((ActionEvent e) -> controller.setView(new StartView()));
         retryButton.setOnAction((ActionEvent e) -> controller.setView(new GameView()));
+        //TODO Leaderboard
+
     }
 
 
