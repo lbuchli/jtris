@@ -6,7 +6,7 @@ import java.util.Properties;
 import java.util.UUID;
 
 public class Leaderboard {
-    private static final String FILEPATH = "config/leaderboard.properties";
+    private static final String FILEPATH = "saves/leaderboard.properties";
 
     private static Leaderboard instance;
 
