@@ -82,7 +82,5 @@ public class GameView implements IView {
             } catch (Exception e) {}
         }).start();
     }
-
-
 }
 

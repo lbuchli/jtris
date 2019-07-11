@@ -25,6 +25,7 @@ class Field {
 
     private int currentPosX;
     private int currentPosY;
+    private int level = 0;
 
     private int speed;
 
@@ -62,11 +63,10 @@ class Field {
             }
 
             // speed up falling of the blocks
-            speed = nextSpeed();
+            speed = nextSpeed(level);
 
             // we can do that because JavaFX runs our stuff in parallel
             try {
-
                 Thread.sleep(speed);
             } catch (InterruptedException e) {
                 interrupted = true;
@@ -290,8 +290,19 @@ class Field {
         }).start();
     }
 
-    private int nextSpeed() {
-        return 1000 - score.getScore() / 5;
+    private int nextSpeed(int level) {
+        int levelSpeed;
+        double d;
+        if (level == 0){
+            level++;
+        }
+        while(level * 500 <= score.getScore()){
+            level++;
+        }
+
+        d = ((11 - level) * 0.05) * 1000;
+        levelSpeed = (int) d;
+        return levelSpeed;
     }
 
     public boolean getIsGameOver() { return isGameOver; }

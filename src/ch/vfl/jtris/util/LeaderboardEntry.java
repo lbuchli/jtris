@@ -11,16 +11,24 @@ public class LeaderboardEntry {
         this.uuid = UUID.randomUUID();
         this.name = name;
         this.score = score;
+    } //Create LeaderboeardEntry type
+
+    public LeaderboardEntry(String uuid, String data) {
+
     }
 
     public String getUUID() {
         return uuid.toString();
+    } //Take uuid (from LeaderboardEntry) and return String
+
+    public Integer getScore(){
+        return score;
     }
 
-    public String getXMLRepresentation() {
-        // TODO
+    public String getRepresentation() {
 
+        String product = name + "-," + score;
 
-        return "";
-    }
+        return product;
+    }//create information string
 }
