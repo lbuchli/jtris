@@ -242,7 +242,7 @@ class Field {
                 clip.open(inputStream);
                 FloatControl gainControl =
                         (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-                gainControl.setValue(Float.parseFloat(Settings.getInstance().get("effect_volume")) * 100);
+                gainControl.setValue((1f - Float.parseFloat(Settings.getInstance().get("music_volume"))) * (-60));
                 clip.start();
             } catch (Exception e) {}
         }).start();

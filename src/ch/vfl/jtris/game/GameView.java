@@ -51,7 +51,7 @@ public class GameView implements IView {
         }).start();
        playMusic(
                "katyusha",
-               Float.parseFloat(Settings.getInstance().get("music_volume")) * 100
+               (1f - Float.parseFloat(Settings.getInstance().get("music_volume"))) * (-60)
        );
     }
 
