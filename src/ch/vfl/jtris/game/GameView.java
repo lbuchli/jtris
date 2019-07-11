@@ -2,7 +2,6 @@ package ch.vfl.jtris.game;
 
 import ch.vfl.jtris.IView;
 import ch.vfl.jtris.IViewController;
-import ch.vfl.jtris.Main;
 import ch.vfl.jtris.end.EndView;
 import ch.vfl.jtris.util.Settings;
 import javafx.application.Platform;
@@ -51,7 +50,7 @@ public class GameView implements IView {
         }).start();
 
        playMusic(
-               "katyusha",
+               Settings.getInstance().get("music_track"),
                (1f - Float.parseFloat(Settings.getInstance().get("music_volume"))) * (-60)
        );
     }

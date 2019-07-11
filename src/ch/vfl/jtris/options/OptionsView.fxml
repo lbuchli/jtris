@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Slider?>
@@ -8,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.vfl.jtris.start.StartView">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.vfl.jtris.start.StartView">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6992b9" height="500.0" stroke="BLACK" strokeType="INSIDE" width="500.0" />
         <AnchorPane layoutX="35.0" layoutY="35.0" prefHeight="144.0" prefWidth="415.0">
@@ -55,7 +60,7 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Slider id="music_volume" layoutX="241.0" layoutY="276.0" prefHeight="16.0" prefWidth="142.0" />
+      <Slider id="music_volume" layoutX="241.0" layoutY="276.0" max="1.0" prefHeight="16.0" prefWidth="142.0" />
       <Text fill="WHITE" layoutX="73.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Music Volume">
          <font>
             <Font name="DejaVu Sans" size="22.0" />
