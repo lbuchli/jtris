@@ -46,7 +46,7 @@ public class OptionsView implements IView {
     @Override
     public void run(IViewController controller) {
         backButton.setOnAction((ActionEvent e) -> {
-            controller.setView(new StartView());
+            controller.setView(null);
 
             String music = musicChoiceBox.getValue().toString();
 

@@ -43,6 +43,4 @@ public class EndView implements IView {
         menuButton.setOnAction((ActionEvent e) -> controller.setView(new StartView()));
         retryButton.setOnAction((ActionEvent e) -> controller.setView(new GameView()));
     }
-
-
 }
