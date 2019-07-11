@@ -49,19 +49,25 @@
                 <Rectangle arcHeight="12.0" arcWidth="12.0" fill="BLUE" height="24.0" layoutX="324.0" layoutY="84.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
             </children>
         </AnchorPane>
-      <ChoiceBox id="musicchoice" layoutX="243.0" layoutY="299.0" prefHeight="26.0" prefWidth="142.0" />
+      <ChoiceBox id="music_choice" layoutX="242.0" layoutY="304.0" prefHeight="26.0" prefWidth="142.0" />
       <Button id="back" layoutX="203.0" layoutY="387.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Back">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Slider id="volume" layoutX="243.0" layoutY="255.0" prefHeight="16.0" prefWidth="142.0" />
-      <Text fill="WHITE" layoutX="144.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Volume">
+      <Slider id="music_volume" layoutX="241.0" layoutY="276.0" prefHeight="16.0" prefWidth="142.0" />
+      <Text fill="WHITE" layoutX="73.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Music Volume">
          <font>
             <Font name="DejaVu Sans" size="22.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="99.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Music Track">
+      <Text fill="WHITE" layoutX="98.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Music Track">
+         <font>
+            <Font name="DejaVu Sans" size="22.0" />
+         </font>
+      </Text>
+      <Slider id="effect_volume" layoutX="242.0" layoutY="228.0" prefHeight="16.0" prefWidth="142.0" />
+      <Text fill="WHITE" layoutX="74.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Effect Volume">
          <font>
             <Font name="DejaVu Sans" size="22.0" />
          </font>

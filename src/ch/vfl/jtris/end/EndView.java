@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 
@@ -17,6 +18,11 @@ public class EndView implements IView {
     private Button menuButton;
     private Button retryButton;
 
+    private int finalScore;
+
+    public EndView(int finalScore) {
+        this.finalScore = finalScore;
+    }
 
     @Override
     public Scene start() throws IOException {
@@ -26,7 +32,8 @@ public class EndView implements IView {
         menuButton = (Button) root.lookup("#menu");
         retryButton = (Button) root.lookup("#retry");
 
-
+        // display score
+        ((Text) root.lookup("#finalscore")).setText(Integer.toString(finalScore));
 
         return scene;
     }

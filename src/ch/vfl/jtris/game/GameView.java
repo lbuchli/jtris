@@ -4,6 +4,7 @@ import ch.vfl.jtris.IView;
 import ch.vfl.jtris.IViewController;
 import ch.vfl.jtris.Main;
 import ch.vfl.jtris.end.EndView;
+import ch.vfl.jtris.util.Settings;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -36,9 +37,7 @@ public class GameView implements IView {
 
         field.setScoreRecipient(score);
 
-        scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
-            field.onKeyboardInput(key);
-        });
+        scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> field.onKeyboardInput(key));
 
 
         return scene;
@@ -48,18 +47,20 @@ public class GameView implements IView {
     public void run(IViewController controller) {
         new Thread(() -> {
             field.run();
-            Platform.runLater(() -> controller.setView(new EndView()));
+            Platform.runLater(() -> controller.setView(new EndView(score.getScore())));
         }).start();
-       playMusic("katyusha", -0.0f);
+       playMusic(
+               "katyusha",
+               Float.parseFloat(Settings.getInstance().get("music_volume")) * 100
+       );
     }
 
     private void playMusic(String musicname, float volume){
         new Thread(() -> {
             try {
-
                 Clip clip = AudioSystem.getClip();
                 AudioInputStream inputStream = AudioSystem.getAudioInputStream(
-                        ClassLoader.getSystemClassLoader().getResourceAsStream("/music/" + musicname + ".wav"));
+                        ClassLoader.getSystemClassLoader().getResourceAsStream("music/" + musicname + ".wav"));
                 clip.open(inputStream);
                 FloatControl gainControl =
                         (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
