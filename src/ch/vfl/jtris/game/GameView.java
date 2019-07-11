@@ -50,7 +50,7 @@ public class GameView implements IView {
             field.run();
             Platform.runLater(() -> controller.setView(new EndView()));
         }).start();
-       playMusic("katyusha", -0.0f);
+       playMusic("atheme", -0.0f);
     }
 
     private void playMusic(String musicname, float volume){
@@ -59,7 +59,7 @@ public class GameView implements IView {
 
                 Clip clip = AudioSystem.getClip();
                 AudioInputStream inputStream = AudioSystem.getAudioInputStream(
-                        ClassLoader.getSystemClassLoader().getResourceAsStream("/music/" + musicname + ".wav"));
+                        ClassLoader.getSystemClassLoader().getResourceAsStream("music/" + musicname + ".wav"));
                 clip.open(inputStream);
                 FloatControl gainControl =
                         (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
