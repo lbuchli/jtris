@@ -94,7 +94,7 @@
                 <Font name="DejaVu Sans Bold" size="24.0" />
             </font>
         </Text>
-      <TextField id="name" layoutX="165.0" layoutY="360.0" text="NAME" />
+      <TextField id="name" layoutX="165.0" layoutY="360.0" text="" />
       <Text fill="WHITE" layoutX="201.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your name:">
          <font>
             <Font name="DejaVu Sans Bold" size="15.0" />
