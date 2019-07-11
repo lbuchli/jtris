@@ -16,8 +16,8 @@ public class Main extends Application implements IViewController {
     public void start(Stage stage) {
         this.stage = stage;
 
-        stage.setHeight(500);
-        stage.setWidth(500);
+        stage.setHeight(539);
+        stage.setWidth(516);
         stage.setTitle("Jtris");
 
         stage.show();
