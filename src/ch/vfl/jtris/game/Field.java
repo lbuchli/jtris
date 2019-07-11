@@ -2,12 +2,14 @@ package ch.vfl.jtris.game;
 
 import ch.vfl.jtris.Main;
 import ch.vfl.jtris.util.Canvas;
+import ch.vfl.jtris.util.Settings;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 
 class Field {
     private static final int FIELD_TILE_WIDTH = 10;
@@ -238,6 +240,9 @@ class Field {
                 AudioInputStream inputStream = AudioSystem.getAudioInputStream(
                         Main.class.getResourceAsStream("/sounds/" + filename + ".wav"));
                 clip.open(inputStream);
+                FloatControl gainControl =
+                        (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+                gainControl.setValue(Float.parseFloat(Settings.getInstance().get("effect_volume")) * 100);
                 clip.start();
             } catch (Exception e) {}
         }).start();

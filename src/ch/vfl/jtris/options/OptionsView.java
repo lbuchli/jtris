@@ -22,20 +22,23 @@ public class OptionsView implements IView {
 
     private ChoiceBox musicChoiceBox;
     private Slider musicVolumeSlider;
+    private Slider effectVolumeSlider;
     private  Button backButton;
 
     public Scene start() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("OptionsView.fxml"));
         Scene scene = new Scene(root, 500, 500);
 
-        musicChoiceBox = (ChoiceBox<String>) root.lookup("#musicchoice");
-        musicVolumeSlider = (Slider) root.lookup("#volume");
+        effectVolumeSlider = (Slider) root.lookup("#effect_volume");
+        musicChoiceBox = (ChoiceBox<String>) root.lookup("#music_choice");
+        musicVolumeSlider = (Slider) root.lookup("#music_volume");
         backButton = (Button) root.lookup("#back");
 
-        musicChoiceBox.setValue(Settings.getInstance().get("musictrack"));
+        musicChoiceBox.setValue(Settings.getInstance().get("music_track"));
         musicChoiceBox.setItems(MUSIC_LIST);
 
-        musicVolumeSlider.adjustValue(Double.parseDouble(Settings.getInstance().get("volume")));
+        musicVolumeSlider. adjustValue(Double.parseDouble(Settings.getInstance().get("music_volume")));
+        effectVolumeSlider.adjustValue(Double.parseDouble(Settings.getInstance().get("effect_volume")));
 
         return scene;
     }
@@ -46,8 +49,9 @@ public class OptionsView implements IView {
             controller.setView(new StartView());
 
             Settings settings = Settings.getInstance();
-            settings.set("musictrack", musicChoiceBox.getValue().toString());
-            settings.set("volume", Double.toString(musicVolumeSlider.getValue()));
+            settings.set("effect_volume", Double.toString(effectVolumeSlider.getValue()));
+            settings.set("music_track", musicChoiceBox.getValue().toString());
+            settings.set("music_volume", Double.toString(musicVolumeSlider.getValue()));
 
             try {
                 Settings.getInstance().write();
