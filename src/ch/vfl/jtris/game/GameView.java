@@ -50,7 +50,7 @@ public class GameView implements IView {
             field.run();
             Platform.runLater(() -> controller.setView(new EndView()));
         }).start();
-        playmusic("katyusha", -0.0f);
+        playmusic("atheme", -0.0f);
     }
 
     private void playmusic(String musicname, float volume){
