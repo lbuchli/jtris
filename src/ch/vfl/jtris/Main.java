@@ -1,6 +1,7 @@
 package ch.vfl.jtris;
 
 import ch.vfl.jtris.start.StartView;
+import ch.vfl.jtris.util.Settings;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -12,10 +13,10 @@ public class Main extends Application implements IViewController {
     private Stage stage;
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
         this.stage = stage;
 
-        stage.setHeight(440);
+        stage.setHeight(500);
         stage.setWidth(500);
         stage.setTitle("Jtris");
 
@@ -25,6 +26,7 @@ public class Main extends Application implements IViewController {
     }
 
     public static void main(String[] args) {
+        Settings.getInstance(); // generate a Settings instance
         launch();
     }
 
@@ -33,8 +35,6 @@ public class Main extends Application implements IViewController {
             stage.setScene(view.start());
             view.run(this);
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }

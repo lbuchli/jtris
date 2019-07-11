@@ -31,8 +31,3 @@ class Score implements IScoreRecipient {
     }
 }
 
-interface IScoreRecipient {
-    void setScore(int score);
-    void addScore(int score);
-    int getScore();
-}

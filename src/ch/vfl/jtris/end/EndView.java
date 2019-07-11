@@ -9,7 +9,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.text.Text;
 
 import java.io.IOException;
 
@@ -22,7 +21,7 @@ public class EndView implements IView {
     @Override
     public Scene start() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("EndView.fxml"));
-        Scene scene = new Scene(root, 240, 400);
+        Scene scene = new Scene(root, 500, 500);
 
         menuButton = (Button) root.lookup("#menu");
         retryButton = (Button) root.lookup("#retry");
@@ -33,7 +32,7 @@ public class EndView implements IView {
     }
 
     @Override
-    public void run(IViewController controller) throws InterruptedException {
+    public void run(IViewController controller) {
         menuButton.setOnAction((ActionEvent e) -> controller.setView(new StartView()));
         retryButton.setOnAction((ActionEvent e) -> controller.setView(new GameView()));
     }
