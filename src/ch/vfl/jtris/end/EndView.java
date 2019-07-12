@@ -59,6 +59,4 @@ public class EndView implements IView {
             e.printStackTrace();
         }
     }
-
-
 }

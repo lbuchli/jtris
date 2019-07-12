@@ -10,7 +10,6 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
-import java.sql.Time;
 
 class Field {
     private static final int FIELD_TILE_WIDTH = 10;
@@ -26,6 +25,10 @@ class Field {
     private int currentPosX;
     private int currentPosY;
     private int level = 0;
+
+    private int speed;
+
+    private boolean isGameOver;
 
     private Canvas canvas;
 
@@ -43,12 +46,13 @@ class Field {
     }
 
     void run() {
-        spawnNewBlock();
+        // current will already be set when resuming after pause
+        if (current == null) spawnNewBlock();
+
+        isGameOver = false;
 
         boolean interrupted = false;
-        int speed;
-
-        while (!interrupted) {
+        while (!interrupted && !isGameOver) {
             if (isPossibleMove(0, 1)) {
                 currentPosY++;
             } else {
@@ -56,7 +60,7 @@ class Field {
                 spawnNewBlock();
 
                 // check if spawned block is spawned into another block
-                if (!isPossibleMove(0, 0)) interrupted = true;
+                if (!isPossibleMove(0, 0)) isGameOver = true;
             }
 
             // speed up falling of the blocks
@@ -95,6 +99,9 @@ class Field {
     }
 
     private boolean isPossibleMove(int xOffset, int yOffset) {
+        // if the current block is null, rotation isn't possible
+        if (current == null) return false;
+
         boolean[][] shape = current.getShape();
 
         for (int x = 0; x < shape.length; x++){
@@ -103,10 +110,10 @@ class Field {
                     int playfieldposX = currentPosX + x + xOffset;
                     int playfieldposY = currentPosY + y + yOffset;
 
-                    if(playfieldposX < field.length && playfieldposX >= 0 &&
-                        playfieldposY < field[playfieldposX].length && playfieldposY >= 0 &&
-                        field[playfieldposX][playfieldposY] == null){
-                    }else {
+                    if(playfieldposX >= field.length || playfieldposX < 0 ||
+                        playfieldposY >= field[playfieldposX].length || playfieldposY < 0 ||
+                        field[playfieldposX][playfieldposY] != null){
+
                         return false;
                     }
                 }
@@ -117,6 +124,9 @@ class Field {
     }
 
     private boolean isPossibleRotation(boolean clockwise) {
+        // if the current block is null, rotation isn't possible
+        if (current == null) return false;
+
         Block rotatedBlock = new Block(current);
         rotatedBlock.rotateShape(clockwise);
         boolean[][] shape = rotatedBlock.getShape();
@@ -301,4 +311,6 @@ class Field {
         levelSpeed = (int) d;
         return levelSpeed;
     }
+
+    public boolean getIsGameOver() { return isGameOver; }
 }

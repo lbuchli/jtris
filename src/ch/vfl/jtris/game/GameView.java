@@ -3,12 +3,14 @@ package ch.vfl.jtris.game;
 import ch.vfl.jtris.IView;
 import ch.vfl.jtris.IViewController;
 import ch.vfl.jtris.end.EndView;
+import ch.vfl.jtris.pause.PauseView;
 import ch.vfl.jtris.util.Settings;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 
@@ -24,11 +26,13 @@ public class GameView implements IView {
     private Next next;
     private Score score;
 
-    public GameView() {}
+    Thread fieldThread;
+    Scene scene;
+    IViewController controller;
 
     public Scene start() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("GameView.fxml"));
-        Scene scene = new Scene(root, 500, 500);
+        scene = new Scene(root, 500, 500);
 
         score = new Score((Text) scene.lookup("#score"));
         next = new Next((Canvas) scene.lookup("#next"));
@@ -36,18 +40,30 @@ public class GameView implements IView {
 
         field.setScoreRecipient(score);
 
-        scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> field.onKeyboardInput(key));
+        scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
+            if (key.getCode() == KeyCode.ESCAPE) {
+                if (controller != null) {
+                    fieldThread.interrupt();
+                    controller.setView(new PauseView());
+                }
+            } else {
+                field.onKeyboardInput(key);
+            }
 
+        });
 
         return scene;
     }
 
 
     public void run(IViewController controller) {
-        new Thread(() -> {
+        this.controller = controller;
+
+        fieldThread = new Thread(() -> {
             field.run();
-            Platform.runLater(() -> controller.setView(new EndView(score.getScore())));
-        }).start();
+            if (field.getIsGameOver()) Platform.runLater(() -> controller.setView(new EndView(score.getScore())));
+        });
+        fieldThread.start();
 
        playMusic(
                Settings.getInstance().get("music_track"),
