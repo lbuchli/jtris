@@ -81,22 +81,38 @@ class Field {
         switch(keyEvent.getCode()) {
             case W:
             case UP:
-                if (isPossibleRotation(true)) current.rotateShape(true);
+                if (isPossibleRotation(true)) {
+                    current.rotateShape(true);
+                    playSound("rotate");
+                }else{
+                    playSound("error");
+                }
                 break;
 
             case A:
             case LEFT:
-                if (isPossibleMove(-1, 0)) currentPosX--;
+                if (isPossibleMove(-1, 0)){
+                    currentPosX--;
+                    playSound("move");
+                }else{
+                    playSound("error");
+                }
+
                 break;
 
             case S:
             case DOWN:
-                if (isPossibleMove(0, 1)) currentPosY++;
+                if (isPossibleMove(0, 1)){
+                    currentPosY++;
+                }
                 break;
 
             case D:
             case RIGHT:
-                if (isPossibleMove(1, 0)) currentPosX++;
+                if (isPossibleMove(1, 0)){
+                    currentPosX++;
+                    playSound("move");
+                }
                 break;
 
         }
@@ -263,7 +279,7 @@ class Field {
                 }
             }
         }
-
+        playSound("achive");
         drawField();
     }
 
@@ -316,5 +332,7 @@ class Field {
         return levelSpeed;
     }
 
-    public boolean getIsGameOver() { return isGameOver; }
+    public boolean getIsGameOver() {
+        playSound("death");
+        return isGameOver; }
 }
