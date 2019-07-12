@@ -19,6 +19,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class GameView implements IView {
 
@@ -65,26 +66,44 @@ public class GameView implements IView {
         });
         fieldThread.start();
 
-       playMusic(
+       music(
                Settings.getInstance().get("music_track"),
-               (1f - Float.parseFloat(Settings.getInstance().get("music_volume"))) * (-60)
+               (1f - Float.parseFloat(Settings.getInstance().get("music_volume"))) * (-60),
+               true
        );
     }
 
-    private void playMusic(String musicname, float volume){
-        new Thread(() -> {
+
+    public static void music(String musicname, float volume, boolean start) {
+
+        if (start) {
             try {
                 Clip clip = AudioSystem.getClip();
+
                 AudioInputStream inputStream = AudioSystem.getAudioInputStream(
-                        ClassLoader.getSystemClassLoader().getResourceAsStream("music/" + musicname + ".wav"));
+                        ClassLoader.getSystemClassLoader().getResourceAsStream("music/" +  musicname + ".wav"));
                 clip.open(inputStream);
                 FloatControl gainControl =
                         (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
                 gainControl.setValue(volume);
-                clip.loop(20000);
+                clip.loop(20);
                 clip.start();
+
             } catch (Exception e) {}
-        }).start();
+        }
+        if (!start) {
+            try {
+                Clip clip = AudioSystem.getClip();
+
+                AudioInputStream inputStream = AudioSystem.getAudioInputStream(
+                        ClassLoader.getSystemClassLoader().getResourceAsStream("music/" +  musicname + ".wav"));
+                clip.open(inputStream);
+                FloatControl gainControl =
+                        (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+                gainControl.setValue(volume);
+                clip.stop();
+            } catch (Exception e) {}
+        }
     }
 }
 
