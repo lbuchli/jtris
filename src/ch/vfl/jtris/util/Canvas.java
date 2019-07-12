@@ -83,4 +83,9 @@ public class Canvas {
     public int getYSquares() {
         return (int) Math.round((canvas.getHeight() - yOffset) / squareSize);
     }
+
+    public double getWidth()  { return canvas.getWidth();  }
+    public double getHeight() { return canvas.getHeight(); }
+
+    public void setPosition(double x, double y) { }
 }

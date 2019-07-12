@@ -69,7 +69,7 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text id="entryA" fill="WHITE" layoutX="60.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPTY" wrappingWidth="283.0908203125">
+            <Text id="entry0" fill="WHITE" layoutX="60.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPTY" wrappingWidth="283.0908203125">
                <font>
                   <Font name="DejaVu Sans Bold" size="24.0" />
                </font>
@@ -85,22 +85,22 @@
                </font>
             </Text>
             <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#ff9900" height="24.0" layoutX="23.0" layoutY="84.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Text id="entryB" fill="WHITE" layoutX="60.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPTY" wrappingWidth="283.0908203125">
+            <Text id="entry1" fill="WHITE" layoutX="60.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPTY" wrappingWidth="283.0908203125">
                <font>
                   <Font name="DejaVu Sans Bold" size="24.0" />
                </font>
             </Text>
-            <Text id="entryC" fill="WHITE" layoutX="60.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPTY" wrappingWidth="283.0908203125">
+            <Text id="entry2" fill="WHITE" layoutX="60.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPTY" wrappingWidth="283.0908203125">
                <font>
                   <Font name="DejaVu Sans Bold" size="24.0" />
                </font>
             </Text>
-            <Text id="entryD" fill="WHITE" layoutX="60.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPTY" wrappingWidth="283.0908203125">
+            <Text id="entry3" fill="WHITE" layoutX="60.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPTY" wrappingWidth="283.0908203125">
                <font>
                   <Font name="DejaVu Sans Bold" size="24.0" />
                </font>
             </Text>
-            <Text id="entryE" fill="WHITE" layoutX="60.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPTY" wrappingWidth="283.0908203125">
+            <Text id="entry4" fill="WHITE" layoutX="60.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPTY" wrappingWidth="283.0908203125">
                <font>
                   <Font name="DejaVu Sans Bold" size="24.0" />
                </font>

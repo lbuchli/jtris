@@ -5,9 +5,8 @@ import ch.vfl.jtris.util.Canvas;
 class Next implements IBlockFeeder {
     private static final int POLYOMINO_SIZE = 4;
 
-    // Adding padding to the squares fixes rounding errors when drawing to the screen.
-    // These rounding errors caused small gaps between the squares.
-    private static final double SQUARE_PADDING = 0.2;
+    private static final double NEXT_CANVAS_X = 315;
+    private static final double NEXT_CANVAS_Y = 98;
 
     private Block next;
 
@@ -33,16 +32,29 @@ class Next implements IBlockFeeder {
     private void drawNextBlock() {
         canvas.clear();
 
+        int sumX = 0;
+        int sumY = 0;
+        int amount = 0;
+
         // draw new block
         boolean[][] shape = next.getShape();
-        for (int i = 0; i < shape.length; i++) {
-            for (int j = 0; j < shape[i].length; j++) {
-                //TODO ALIGN THE SHAPE TO CENTER
-                if (shape[i][j]) {
-                    canvas.drawFancySquare(i, j, next.getColor());
+        for (int x = 0; x < shape.length; x++) {
+            for (int y = 0; y < shape[x].length; y++) {
+                if (shape[x][y]) {
+                    canvas.drawFancySquare(x, y, next.getColor());
+
+                    sumX += x;
+                    sumY += y;
+                    amount++;
                 }
             }
         }
+
+        // calculate center
+        double centerOffsetX = (canvas.getWidth()/2) - sumX/amount;
+        double centerOffsetY = (canvas.getHeight()/2) - sumY/amount;
+
+
     }
 }
 

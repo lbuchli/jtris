@@ -26,6 +26,8 @@ public class EndView implements IView {
 
     private int finalScore;
 
+    private boolean savedToLeaderboard;
+
     public EndView(int finalScore) {
         this.finalScore = finalScore;
     }
@@ -42,25 +44,31 @@ public class EndView implements IView {
         // display score
         ((Text) root.lookup("#finalscore")).setText(Integer.toString(finalScore));
 
+        savedToLeaderboard = false;
+
         return scene;
     }
 
     @Override
     public void run(IViewController controller) {
-        menuButton.setOnAction((ActionEvent e) -> { controller.setView(new StartView()); setLeaderboardEntry(); });
-        retryButton.setOnAction((ActionEvent e) -> { controller.setView(new GameView()); setLeaderboardEntry(); });
+        menuButton.setOnAction((ActionEvent e) ->        { setLeaderboardEntry(); controller.setView(new StartView()); });
+        retryButton.setOnAction((ActionEvent e) ->       { setLeaderboardEntry(); controller.setView(new GameView()); });
         leaderboardButton.setOnAction((ActionEvent e) -> { setLeaderboardEntry(); controller.setView(new LeaderboardView()); });
 
 
 
     }
     private void setLeaderboardEntry() {
-        Leaderboard instance = Leaderboard.getInstance();
-        instance.setEntry(new LeaderboardEntry(((TextField) root.lookup("#name")).getText(), finalScore));
-        try {
-            instance.write();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (!savedToLeaderboard) {
+            Leaderboard instance = Leaderboard.getInstance();
+            instance.setEntry(new LeaderboardEntry(((TextField) root.lookup("#name")).getText(), finalScore));
+            try {
+                instance.write();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            savedToLeaderboard = true;
         }
     }
 }

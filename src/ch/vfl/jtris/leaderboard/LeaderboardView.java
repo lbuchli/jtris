@@ -47,11 +47,10 @@ public class LeaderboardView implements IView {
         Leaderboard instance = Leaderboard.getInstance();
         ArrayList<LeaderboardEntry> leaderboard = instance.getTopEntries(5);
 
-        ((Text) root.lookup("#entryA")).setText(prettyPrintEntry(leaderboard.get(0)));
-        ((Text) root.lookup("#entryB")).setText(prettyPrintEntry(leaderboard.get(1)));
-        ((Text) root.lookup("#entryC")).setText(prettyPrintEntry(leaderboard.get(2)));
-        ((Text) root.lookup("#entryD")).setText(prettyPrintEntry(leaderboard.get(3)));
-        ((Text) root.lookup("#entryE")).setText(prettyPrintEntry(leaderboard.get(4)));
+        int leaderboardSize = leaderboard.size();
+        for (int i = 0; i < leaderboardSize; i++) {
+            ((Text) root.lookup("#entry" + i)).setText(prettyPrintEntry(leaderboard.get(i)));
+        }
     }
 
     private String prettyPrintEntry(LeaderboardEntry entry) {

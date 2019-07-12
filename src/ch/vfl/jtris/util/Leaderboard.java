@@ -37,7 +37,6 @@ public class Leaderboard {
     } //get data from UUID (key)
 
     public ArrayList<LeaderboardEntry> getTopEntries(int top) {
-        ArrayList<String[]> scores = new ArrayList<>();
         ArrayList<LeaderboardEntry> leaderboard = new ArrayList<>();
 
         Enumeration<String> uuids = (Enumeration<String>) properties.propertyNames();
