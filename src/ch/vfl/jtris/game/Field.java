@@ -80,20 +80,25 @@ class Field {
     void onKeyboardInput(KeyEvent keyEvent){
         switch(keyEvent.getCode()) {
             case W:
+            case UP:
                 if (isPossibleRotation(true)) current.rotateShape(true);
                 break;
 
             case A:
+            case LEFT:
                 if (isPossibleMove(-1, 0)) currentPosX--;
                 break;
 
             case S:
+            case DOWN:
                 if (isPossibleMove(0, 1)) currentPosY++;
                 break;
 
             case D:
+            case RIGHT:
                 if (isPossibleMove(1, 0)) currentPosX++;
                 break;
+
         }
         drawField();
     }
