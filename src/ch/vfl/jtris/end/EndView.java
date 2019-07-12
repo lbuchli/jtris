@@ -3,6 +3,7 @@ package ch.vfl.jtris.end;
 import ch.vfl.jtris.IView;
 import ch.vfl.jtris.IViewController;
 import ch.vfl.jtris.game.GameView;
+import ch.vfl.jtris.leaderboard.LeaderboardView;
 import ch.vfl.jtris.start.StartView;
 import ch.vfl.jtris.util.Leaderboard;
 import ch.vfl.jtris.util.LeaderboardEntry;
@@ -20,6 +21,7 @@ public class EndView implements IView {
 
     private Button menuButton;
     private Button retryButton;
+    private Button leaderboardButton;
     private Parent root;
 
     private int finalScore;
@@ -33,8 +35,9 @@ public class EndView implements IView {
         root = FXMLLoader.load(getClass().getResource("EndView.fxml"));
         Scene scene = new Scene(root, 500, 500);
 
-        menuButton = (Button) root.lookup("#menu");
-        retryButton = (Button) root.lookup("#retry");
+        menuButton =        (Button) root.lookup("#menu");
+        retryButton =       (Button) root.lookup("#retry");
+        leaderboardButton = (Button) root.lookup("#leaderboard");
 
         // display score
         ((Text) root.lookup("#finalscore")).setText(Integer.toString(finalScore));
@@ -46,6 +49,7 @@ public class EndView implements IView {
     public void run(IViewController controller) {
         menuButton.setOnAction((ActionEvent e) -> { controller.setView(new StartView()); setLeaderboardEntry(); });
         retryButton.setOnAction((ActionEvent e) -> { controller.setView(new GameView()); setLeaderboardEntry(); });
+        leaderboardButton.setOnAction((ActionEvent e) -> { setLeaderboardEntry(); controller.setView(new LeaderboardView()); });
 
 
 

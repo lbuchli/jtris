@@ -30,24 +30,26 @@ public class Leaderboard {
 
     public void setEntry(LeaderboardEntry entry) {
         properties.setProperty(entry.getUUID(), entry.getRepresentation());
-    } //set data to (entry.getRepresentation) UUID (entry.getUUID)
+    }
 
     public String getEntry(UUID key) {
         return properties.getProperty(key.toString());
     } //get data from UUID (key)
 
-    public LeaderboardEntry[] getTopEntries(int top) {
+    public ArrayList<LeaderboardEntry> getTopEntries(int top) {
         ArrayList<String[]> scores = new ArrayList<>();
         ArrayList<LeaderboardEntry> leaderboard = new ArrayList<>();
 
-        ArrayList<UUID> uuids = (ArrayList<UUID>) properties.propertyNames();
+        Enumeration<String> uuids = (Enumeration<String>) properties.propertyNames();
         HashMap<UUID, LeaderboardEntry> entries = new HashMap<>();
-        for (UUID uuid : uuids) {
+        while (uuids.hasMoreElements()) {
+            UUID uuid = UUID.fromString(uuids.nextElement());
             entries.put(uuid, new LeaderboardEntry(uuid.toString(), (String) properties.get(uuid.toString())));
         }
 
 
-        while (leaderboard.size() < 5) {
+        int leaderboardSize = top > entries.size() ? entries.size() : top;
+        while (leaderboard.size() < leaderboardSize) {
             int bestScore = -1;
             LeaderboardEntry bestEntry = new LeaderboardEntry("", -1);
 
@@ -64,8 +66,8 @@ public class Leaderboard {
             entries.remove(bestEntry.getRawUUID());
         }
 
-        return leaderboard.toArray(LeaderboardEntry[]::new);
-    } //Get Array with (top)*top players
+        return leaderboard;
+    }
 
 
     public void write() throws IOException {

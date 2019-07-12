@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.*?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.vfl.jtris.start.StartView">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.vfl.jtris.start.StartView">
     <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6992b9" height="500.0" stroke="BLACK" strokeType="INSIDE" width="500.0" />
       <AnchorPane layoutX="94.0" layoutY="34.0" prefHeight="216.0" prefWidth="267.0">
@@ -101,7 +97,8 @@
          <font>
             <Font name="DejaVu Sans Bold" size="15.0" />
          </font></Text>
-      <Button id="menu" layoutX="166.0" layoutY="385.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" text="Main Menu" />
-      <Button id="retry" layoutX="257.0" layoutY="385.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" text="Retry" />
+      <Button id="menu" layoutX="217.0" layoutY="405.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" text="Main Menu" />
+      <Button id="retry" layoutX="328.0" layoutY="405.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" text="Retry" />
+      <Button id="leaderboard" layoutX="95.0" layoutY="405.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="109.0" text="Leaderboard" />
     </children>
 </AnchorPane>

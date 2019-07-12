@@ -1,7 +1,11 @@
 package ch.vfl.jtris.leaderboard;
 
+import ch.vfl.jtris.IView;
+import ch.vfl.jtris.IViewController;
+import ch.vfl.jtris.start.StartView;
 import ch.vfl.jtris.util.Leaderboard;
 import ch.vfl.jtris.util.LeaderboardEntry;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,8 +14,9 @@ import javafx.scene.text.Text;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 
-public class LeaderboardView{
+public class LeaderboardView implements IView {
 
     private Button menuButton;
     private Button backButton;
@@ -25,50 +30,31 @@ public class LeaderboardView{
         menuButton = (javafx.scene.control.Button) root.lookup("#menu");
         backButton = (javafx.scene.control.Button) root.lookup("#back");
 
-
-        // display leaderboard
-        getLeaderboard();
-
         return scene;
 
     }
-    private void getLeaderboard(){
-        Leaderboard instance = Leaderboard.getInstance();
-        LeaderboardEntry[] leaderboard = instance.getTopEntries(4);
 
-        for(int top = 0; top > 5;) {
-            LeaderboardEntry entry = leaderboard[top];
-            String data = entry.getRepresentation();
+    @Override
+    public void run(IViewController controller) {
+        backButton.setOnAction((ActionEvent e) -> controller.setView(null));
+        menuButton.setOnAction((ActionEvent e) -> controller.setView(new StartView()));
 
-            String[] dataparts = data.split("-,");
-            String name = dataparts[0];
-            String score = dataparts[1];
-
-            String finaldata = name + " -> " + score;
-
-            switch(top){
-                case 0:
-                    ((Text) root.lookup("#first")).setText(finaldata);
-                case 1:
-                    ((Text) root.lookup("#second")).setText(finaldata);
-                case 2:
-                    ((Text) root.lookup("#third")).setText(finaldata);
-                case 3:
-                    ((Text) root.lookup("#forth")).setText(finaldata);
-                case 4:
-                    ((Text) root.lookup("#first")).setText(finaldata);
-                case 5:
-                    System.out.print("hi!");
-            }
-
-
-
-
-        }
-
-
+        // display leaderboard
+        getLeaderboard();
     }
 
+    private void getLeaderboard(){
+        Leaderboard instance = Leaderboard.getInstance();
+        ArrayList<LeaderboardEntry> leaderboard = instance.getTopEntries(5);
 
+        ((Text) root.lookup("#entryA")).setText(prettyPrintEntry(leaderboard.get(0)));
+        ((Text) root.lookup("#entryB")).setText(prettyPrintEntry(leaderboard.get(1)));
+        ((Text) root.lookup("#entryC")).setText(prettyPrintEntry(leaderboard.get(2)));
+        ((Text) root.lookup("#entryD")).setText(prettyPrintEntry(leaderboard.get(3)));
+        ((Text) root.lookup("#entryE")).setText(prettyPrintEntry(leaderboard.get(4)));
+    }
 
+    private String prettyPrintEntry(LeaderboardEntry entry) {
+        return entry.getName() + ": " + entry.getScore();
+    }
 }

@@ -11,15 +11,22 @@ public class LeaderboardEntry {
         this.uuid = UUID.randomUUID();
         this.name = name;
         this.score = score;
-    } //Create LeaderboeardEntry type
+
+        this.name = this.name.replace(';', ' ');
+    }
 
     public LeaderboardEntry(String uuid, String data) {
+        this.uuid = UUID.fromString(uuid);
+        String[] splitData = data.split(";");
+        this.name = splitData[0];
 
+        if (splitData[1].matches("[0-9]+"))
+            this.score = Integer.parseInt(splitData[1]);
     }
 
     public String getUUID() {
         return uuid.toString();
-    } //Take uuid (from LeaderboardEntry) and return String
+    }
 
     public UUID getRawUUID() {
         return uuid;
@@ -29,10 +36,9 @@ public class LeaderboardEntry {
         return score;
     }
 
+    public String getName() { return name; }
+
     public String getRepresentation() {
-
-        String product = name + "-," + score;
-
-        return product;
-    }//create information string
+        return name + ";" + score;
+    }
 }
