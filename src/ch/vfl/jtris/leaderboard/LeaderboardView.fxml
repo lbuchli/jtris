@@ -15,104 +15,105 @@
 <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.vfl.jtris.start.StartView">
     <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6992b9" height="500.0" stroke="BLACK" strokeType="INSIDE" width="500.0" />
-      <AnchorPane layoutX="34.0" layoutY="14.0" prefHeight="365.0" prefWidth="442.0">
+      <AnchorPane layoutX="71.0" layoutY="44.0" prefHeight="281.0" prefWidth="358.0">
          <children>
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="YELLOW" height="24.0" layoutX="90.0" layoutY="96.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#ff9900" height="24.0" layoutX="26.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#ff9900" height="24.0" layoutX="26.0" layoutY="84.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#ff9900" height="24.0" layoutX="50.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#ff9900" height="24.0" layoutX="26.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#ff9900" height="24.0" layoutX="50.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="YELLOW" height="24.0" layoutX="90.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="YELLOW" height="24.0" layoutX="90.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="YELLOW" height="24.0" layoutX="90.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="YELLOW" height="24.0" layoutX="114.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="YELLOW" height="24.0" layoutX="138.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="YELLOW" height="24.0" layoutX="114.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="YELLOW" height="24.0" layoutX="138.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#ff9900" height="24.0" layoutX="2.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#ff9900" height="24.0" layoutX="2.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#00fffc" height="24.0" layoutX="178.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#00fffc" height="24.0" layoutX="178.0" layoutY="96.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#00fffc" height="24.0" layoutX="178.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#00fffc" height="24.0" layoutX="178.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#00fffc" height="24.0" layoutX="226.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#00fffc" height="24.0" layoutX="226.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#00fffc" height="24.0" layoutX="226.0" layoutY="96.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#00fffc" height="24.0" layoutX="226.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#00fffc" height="24.0" layoutX="202.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#00fffc" height="24.0" layoutX="202.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="RED" height="24.0" layoutX="264.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="RED" height="24.0" layoutX="264.0" layoutY="96.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="RED" height="24.0" layoutX="264.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="RED" height="24.0" layoutX="264.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="RED" height="24.0" layoutX="312.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="RED" height="24.0" layoutX="288.0" layoutY="84.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="RED" height="24.0" layoutX="288.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="RED" height="24.0" layoutX="312.0" layoutY="96.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="RED" height="24.0" layoutX="312.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#29ff00" height="24.0" layoutX="347.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#29ff00" height="24.0" layoutX="347.0" layoutY="96.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#29ff00" height="24.0" layoutX="347.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#29ff00" height="24.0" layoutX="347.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#29ff00" height="24.0" layoutX="371.0" layoutY="122.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#29ff00" height="24.0" layoutX="395.0" layoutY="122.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#29ff00" height="24.0" layoutX="371.0" layoutY="84.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#29ff00" height="24.0" layoutX="371.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#29ff00" height="24.0" layoutX="395.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
-              <Text id="first" fill="WHITE" layoutX="94.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPTY" textAlignment="CENTER" wrappingWidth="339.0908203125">
-                  <font>
-                      <Font name="DejaVu Sans Bold" size="24.0" />
-                  </font>
-              </Text>
-            <Text fill="WHITE" layoutX="15.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1.">
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="YELLOW" height="24.0" layoutX="71.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#ff9900" height="24.0" layoutX="47.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#ff9900" height="24.0" layoutX="11.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#ff9900" height="24.0" layoutX="35.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#ff9900" height="24.0" layoutX="23.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#ff9900" height="24.0" layoutX="47.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="YELLOW" height="24.0" layoutX="71.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="YELLOW" height="24.0" layoutX="71.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="YELLOW" height="24.0" layoutX="71.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="YELLOW" height="24.0" layoutX="95.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="YELLOW" height="24.0" layoutX="119.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="YELLOW" height="24.0" layoutX="95.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="YELLOW" height="24.0" layoutX="119.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#ff9900" height="24.0" layoutX="-1.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#ff9900" height="24.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#00fffc" height="24.0" layoutX="143.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#00fffc" height="24.0" layoutX="143.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#00fffc" height="24.0" layoutX="143.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#00fffc" height="24.0" layoutX="143.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#00fffc" height="24.0" layoutX="190.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#00fffc" height="24.0" layoutX="190.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#00fffc" height="24.0" layoutX="190.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#00fffc" height="24.0" layoutX="190.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#00fffc" height="24.0" layoutX="166.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#00fffc" height="24.0" layoutX="167.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="RED" height="24.0" layoutX="214.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="RED" height="24.0" layoutX="214.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="RED" height="24.0" layoutX="214.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="RED" height="24.0" layoutX="214.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="RED" height="24.0" layoutX="262.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="RED" height="24.0" layoutX="238.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="RED" height="24.0" layoutX="238.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="RED" height="24.0" layoutX="262.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="RED" height="24.0" layoutX="262.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#29ff00" height="24.0" layoutX="286.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#29ff00" height="24.0" layoutX="286.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#29ff00" height="24.0" layoutX="286.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#29ff00" height="24.0" layoutX="286.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#29ff00" height="24.0" layoutX="310.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#29ff00" height="24.0" layoutX="334.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#29ff00" height="24.0" layoutX="310.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#29ff00" height="24.0" layoutX="310.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#29ff00" height="24.0" layoutX="334.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Text fill="WHITE" layoutX="26.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1.">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="17.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2.">
+            <Text fill="WHITE" layoutX="26.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2.">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text id="second" fill="WHITE" layoutX="94.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPTY" textAlignment="CENTER" wrappingWidth="339.0908203125">
+            <Text fill="WHITE" layoutX="26.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3.">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text id="thrid" fill="WHITE" layoutX="60.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPTY" textAlignment="RIGHT" wrappingWidth="283.0908203125">
                <font>
                   <Font name="DejaVu Sans Bold" size="24.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="17.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3.">
+            <Text fill="WHITE" layoutX="26.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4.">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text id="thrid" fill="WHITE" layoutX="94.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPTY" textAlignment="CENTER" wrappingWidth="339.0908203125">
+            <Text fill="WHITE" layoutX="26.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5.">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#ff9900" height="24.0" layoutX="23.0" layoutY="84.0" stroke="BLACK" strokeType="INSIDE" width="24.0" />
+            <Text id="thrid" fill="WHITE" layoutX="60.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPTY" textAlignment="RIGHT" wrappingWidth="283.0908203125">
                <font>
                   <Font name="DejaVu Sans Bold" size="24.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="17.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4.">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Text>
-            <Text id="forth" fill="WHITE" layoutX="94.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPTY" textAlignment="CENTER" wrappingWidth="339.0908203125">
+            <Text id="thrid" fill="WHITE" layoutX="60.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPTY" textAlignment="RIGHT" wrappingWidth="283.0908203125">
                <font>
                   <Font name="DejaVu Sans Bold" size="24.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="17.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5.">
+            <Text id="thrid" fill="WHITE" layoutX="60.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPTY" textAlignment="RIGHT" wrappingWidth="283.0908203125">
                <font>
-                  <Font size="24.0" />
+                  <Font name="DejaVu Sans Bold" size="24.0" />
                </font>
             </Text>
-            <Text id="fifth" fill="WHITE" layoutX="94.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPTY" textAlignment="CENTER" wrappingWidth="339.0908203125">
+            <Text id="thrid" fill="WHITE" layoutX="60.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPTY" textAlignment="RIGHT" wrappingWidth="283.0908203125">
                <font>
                   <Font name="DejaVu Sans Bold" size="24.0" />
                </font>
             </Text>
          </children>
       </AnchorPane>
-      <Button id="menu" layoutX="158.0" layoutY="418.0" mnemonicParsing="false" text="Main Menu" />
-      <Button id="back" layoutX="255.0" layoutY="418.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" text="Back" />
+      <Button id="menu" layoutX="154.0" layoutY="362.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" text="Main Menu" />
+      <Button id="back" layoutX="257.0" layoutY="362.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" text="Back" />
     </children>
 </AnchorPane>
