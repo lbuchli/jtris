@@ -27,8 +27,8 @@ public class GameView implements IView {
     private Score score;
 
     Thread fieldThread;
-
     Scene scene;
+    IViewController controller;
 
     public Scene start() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("GameView.fxml"));
@@ -40,26 +40,30 @@ public class GameView implements IView {
 
         field.setScoreRecipient(score);
 
-        return scene;
-    }
-
-
-    public void run(IViewController controller) {
-        fieldThread = new Thread(() -> {
-            field.run();
-            if (!field.getIsGameOver()) Platform.runLater(() -> controller.setView(new EndView(score.getScore())));
-        });
-        fieldThread.start();
-
         scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
             if (key.getCode() == KeyCode.ESCAPE) {
-                fieldThread.interrupt();
-                controller.setView(new PauseView());
+                if (controller != null) {
+                    fieldThread.interrupt();
+                    controller.setView(new PauseView());
+                }
             } else {
                 field.onKeyboardInput(key);
             }
 
         });
+
+        return scene;
+    }
+
+
+    public void run(IViewController controller) {
+        this.controller = controller;
+
+        fieldThread = new Thread(() -> {
+            field.run();
+            if (field.getIsGameOver()) Platform.runLater(() -> controller.setView(new EndView(score.getScore())));
+        });
+        fieldThread.start();
 
        playMusic(
                Settings.getInstance().get("music_track"),

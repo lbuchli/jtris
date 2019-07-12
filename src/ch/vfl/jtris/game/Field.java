@@ -47,7 +47,9 @@ class Field {
     }
 
     void run() {
-        spawnNewBlock();
+        // current will already be set when resuming after pause
+        if (current == null) spawnNewBlock();
+
         isGameOver = false;
 
         boolean interrupted = false;
