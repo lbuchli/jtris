@@ -17,10 +17,11 @@ import java.util.ArrayList;
 
 public class LeaderboardView implements IView {
 
+    private final static int ENTRY_MAX_LENGTH = 14;
+
     private Button menuButton;
     private Button backButton;
     private Parent root;
-
 
     public Scene start() throws IOException{
         root = FXMLLoader.load(getClass().getResource("LeaderboardView.fxml"));
@@ -53,6 +54,12 @@ public class LeaderboardView implements IView {
     }
 
     private String prettyPrintEntry(LeaderboardEntry entry) {
-        return entry.getName() + ": " + entry.getScore();
+        String name = entry.getName();
+        String score = String.valueOf(entry.getScore());
+        if (name.length() + score.length() > ENTRY_MAX_LENGTH) {
+            name = name.substring(0, ENTRY_MAX_LENGTH - score.length() - 2).concat("...");
+        }
+
+        return name + ": " + score;
     }
 }
