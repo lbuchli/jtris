@@ -39,10 +39,15 @@ public class Main extends Application implements IViewController {
     public void setView(IView view) {
         Scene scene = null;
         if (view == null) {
-            viewStack.remove(viewStack.size()-1);
-            Pair<IView, Scene> viewPair = viewStack.get(viewStack.size()-1);
-            view = viewPair.getKey();
-            scene = viewPair.getValue();
+            stage.close();
+            if (viewStack.size() > 1) {
+                viewStack.remove(viewStack.size()-1);
+                Pair<IView, Scene> viewPair = viewStack.get(viewStack.size()-1);
+                view = viewPair.getKey();
+                scene = viewPair.getValue();
+            } else {
+                return;
+            }
         } else {
             try {
                 scene = view.start();
@@ -54,5 +59,9 @@ public class Main extends Application implements IViewController {
 
         stage.setScene(scene);
         view.run(this);
+    }
+
+    public void quit() {
+        while (stage.getScene() != null) stage.close();
     }
 }

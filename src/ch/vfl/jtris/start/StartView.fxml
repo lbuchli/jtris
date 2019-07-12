@@ -53,7 +53,7 @@
                 <Font name="DejaVu Sans Bold" size="18.0" />
             </font>
         </Text>
-    <Button id="start" layoutX="212.0" layoutY="296.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="78.0" text="Start">
+    <Button id="start" layoutX="117.0" layoutY="305.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="120.0" text="Start">
         <font>
             <Font size="15.0" />
         </font>
@@ -61,10 +61,26 @@
             <Insets />
          </opaqueInsets>
     </Button>
-    <Button id="options" layoutX="211.0" layoutY="343.0" mnemonicParsing="false" text="Options">
+    <Button id="options" layoutX="266.0" layoutY="305.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="120.0" text="Options">
        <font>
           <Font size="15.0" />
        </font>
     </Button>
+      <Button id="quit" layoutX="266.0" layoutY="354.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="120.0" text="Quit">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
+      <Button id="leaderboard" layoutX="117.0" layoutY="354.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="120.0" text="Leaderboard">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
     </children>
 </AnchorPane>

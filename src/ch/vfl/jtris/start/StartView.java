@@ -3,6 +3,7 @@ package ch.vfl.jtris.start;
 import ch.vfl.jtris.IView;
 import ch.vfl.jtris.IViewController;
 import ch.vfl.jtris.game.GameView;
+import ch.vfl.jtris.leaderboard.LeaderboardView;
 import ch.vfl.jtris.options.OptionsView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -20,13 +21,17 @@ public class StartView implements IView {
 
     private Button startButton;
     private Button optionsButton;
+    private Button quitButton;
+    private Button leaderboardButton;
 
     public Scene start() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("StartView.fxml"));
         currentScene = new Scene(root, 500, 500);
 
-        startButton = (Button) root.lookup("#start");
-        optionsButton = (Button) root.lookup("#options");
+        startButton =       (Button) root.lookup("#start");
+        optionsButton =     (Button) root.lookup("#options");
+        quitButton =        (Button) root.lookup("#quit");
+        leaderboardButton = (Button) root.lookup("#leaderboard");
 
         return currentScene;
     }
@@ -38,7 +43,9 @@ public class StartView implements IView {
                 controller.setView(new GameView());
             }
         });
-        startButton.setOnAction((ActionEvent e) -> controller.setView(new GameView()));
-        optionsButton.setOnAction((ActionEvent e) -> controller.setView(new OptionsView()));
+        startButton.setOnAction((ActionEvent e) ->       controller.setView(new GameView()));
+        optionsButton.setOnAction((ActionEvent e) ->     controller.setView(new OptionsView()));
+        quitButton.setOnAction((ActionEvent e) ->        controller.setView(null));
+        leaderboardButton.setOnAction((ActionEvent e) -> controller.quit());
     }
 }
