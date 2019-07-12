@@ -21,6 +21,10 @@ public class LeaderboardEntry {
         return uuid.toString();
     } //Take uuid (from LeaderboardEntry) and return String
 
+    public UUID getRawUUID() {
+        return uuid;
+    }
+
     public Integer getScore(){
         return score;
     }

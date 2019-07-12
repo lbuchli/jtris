@@ -1,9 +1,7 @@
 package ch.vfl.jtris.util;
 
 import java.io.*;
-import java.util.Enumeration;
-import java.util.Properties;
-import java.util.UUID;
+import java.util.*;
 
 public class Leaderboard {
     private static final String FILEPATH = "saves/leaderboard.properties";
@@ -38,39 +36,37 @@ public class Leaderboard {
         return properties.getProperty(key.toString());
     } //get data from UUID (key)
 
-    public LeaderboardEntry[] getTopEntries(int top, LeaderboardEntry entry) {
-        String[][] scores = new String[500][1];
-        LeaderboardEntry[] leaderboard = new LeaderboardEntry[top];
+    public LeaderboardEntry[] getTopEntries(int top) {
+        ArrayList<String[]> scores = new ArrayList<>();
+        ArrayList<LeaderboardEntry> leaderboard = new ArrayList<>();
 
-        Enumeration<UUID> enums = (Enumeration<UUID>) properties.propertyNames();
-        while (enums.hasMoreElements()) {
-            int counter = 0;
-
-            UUID key = enums.nextElement();
-            String nowuuid = getEntry(key);
-            int nowscore = entry.getScore();
-            while(Integer.parseInt(scores[counter][0]) > nowscore){
-                counter ++;
-            }
-            scores[counter][0] = Integer.toString(nowscore);
-            scores[counter][1] = nowuuid;
-            leaderboard[counter] = entry;
+        ArrayList<UUID> uuids = (ArrayList<UUID>) properties.propertyNames();
+        HashMap<UUID, LeaderboardEntry> entries = new HashMap<>();
+        for (UUID uuid : uuids) {
+            entries.put(uuid, new LeaderboardEntry(uuid.toString(), (String) properties.get(uuid.toString())));
         }
 
 
-        //Cycle trough Keys
-            //int counter = 0;
-            //getEntry(Key) to String
-            //getScore(Key) to Int
-            //save UUID with score in 2d array scores[score][uuid]
-            //while scores[score] > getScore
-                //counter++;
-            //save score and uuid in scores[score][uuid]
-        //save LeaderboardEntry in LeaderboardEntry[]
+        while (leaderboard.size() < 5) {
+            int bestScore = -1;
+            LeaderboardEntry bestEntry = new LeaderboardEntry("", -1);
 
+            Set<UUID> entryKeys = entries.keySet();
+            for (UUID key : entryKeys) {
+                LeaderboardEntry entry = entries.get(key);
+                if (entry.getScore() > bestScore) {
+                    bestScore = entry.getScore();
+                    bestEntry = entry;
+                }
+            }
 
-        return null;
+            leaderboard.add(bestEntry);
+            entries.remove(bestEntry.getRawUUID());
+        }
+
+        return leaderboard.toArray(LeaderboardEntry[]::new);
     } //Get Array with (top)*top players
+
 
     public void write() throws IOException {
         OutputStream leaderFile = new FileOutputStream(new File(ClassLoader.getSystemClassLoader().getResource(FILEPATH).getFile()));
