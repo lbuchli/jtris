@@ -305,10 +305,9 @@ class Field {
     private int nextSpeed(int level) {
         int levelSpeed;
         double d;
-        if (level == 0){
-            level++;
-        }
-        while(level * 500 <= score.getScore()){
+        int[] arrLevel = {1000, 3000, 6000, 10000, 15000, 21000, 28000, 36000, 45000, 55000};
+
+        while(arrLevel[level] <= score.getScore()){
             level++;
         }
 
