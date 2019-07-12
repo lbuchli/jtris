@@ -2,8 +2,6 @@ package ch.vfl.jtris.pause;
 
 import ch.vfl.jtris.IView;
 import ch.vfl.jtris.IViewController;
-import ch.vfl.jtris.game.GameView;
-import ch.vfl.jtris.options.OptionsView;
 import ch.vfl.jtris.start.StartView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;

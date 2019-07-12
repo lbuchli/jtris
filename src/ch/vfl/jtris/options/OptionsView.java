@@ -2,7 +2,6 @@ package ch.vfl.jtris.options;
 
 import ch.vfl.jtris.IView;
 import ch.vfl.jtris.IViewController;
-import ch.vfl.jtris.start.StartView;
 import ch.vfl.jtris.util.Settings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

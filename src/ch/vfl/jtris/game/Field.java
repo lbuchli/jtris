@@ -10,7 +10,6 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
-import java.sql.Time;
 
 class Field {
     private static final int FIELD_TILE_WIDTH = 10;
@@ -100,6 +99,9 @@ class Field {
     }
 
     private boolean isPossibleMove(int xOffset, int yOffset) {
+        // if the current block is null, rotation isn't possible
+        if (current == null) return false;
+
         boolean[][] shape = current.getShape();
 
         for (int x = 0; x < shape.length; x++){
@@ -108,10 +110,10 @@ class Field {
                     int playfieldposX = currentPosX + x + xOffset;
                     int playfieldposY = currentPosY + y + yOffset;
 
-                    if(playfieldposX < field.length && playfieldposX >= 0 &&
-                        playfieldposY < field[playfieldposX].length && playfieldposY >= 0 &&
-                        field[playfieldposX][playfieldposY] == null){
-                    }else {
+                    if(playfieldposX >= field.length || playfieldposX < 0 ||
+                        playfieldposY >= field[playfieldposX].length || playfieldposY < 0 ||
+                        field[playfieldposX][playfieldposY] != null){
+
                         return false;
                     }
                 }
