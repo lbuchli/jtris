@@ -122,6 +122,9 @@ class Field {
     }
 
     private boolean isPossibleRotation(boolean clockwise) {
+        // if the current block is null, rotation isn't possible
+        if (current == null) return false;
+
         Block rotatedBlock = new Block(current);
         rotatedBlock.rotateShape(clockwise);
         boolean[][] shape = rotatedBlock.getShape();
