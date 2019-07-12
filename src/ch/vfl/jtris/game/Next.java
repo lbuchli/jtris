@@ -32,29 +32,15 @@ class Next implements IBlockFeeder {
     private void drawNextBlock() {
         canvas.clear();
 
-        int sumX = 0;
-        int sumY = 0;
-        int amount = 0;
-
         // draw new block
         boolean[][] shape = next.getShape();
         for (int x = 0; x < shape.length; x++) {
             for (int y = 0; y < shape[x].length; y++) {
                 if (shape[x][y]) {
                     canvas.drawFancySquare(x, y, next.getColor());
-
-                    sumX += x;
-                    sumY += y;
-                    amount++;
                 }
             }
         }
-
-        // calculate center
-        double centerOffsetX = (canvas.getWidth()/2) - sumX/amount;
-        double centerOffsetY = (canvas.getHeight()/2) - sumY/amount;
-
-
     }
 }
 

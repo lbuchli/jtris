@@ -86,6 +86,4 @@ public class Canvas {
 
     public double getWidth()  { return canvas.getWidth();  }
     public double getHeight() { return canvas.getHeight(); }
-
-    public void setPosition(double x, double y) { }
 }

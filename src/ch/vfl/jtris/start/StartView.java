@@ -45,7 +45,7 @@ public class StartView implements IView {
         });
         startButton.setOnAction((ActionEvent e) ->       controller.setView(new GameView()));
         optionsButton.setOnAction((ActionEvent e) ->     controller.setView(new OptionsView()));
-        quitButton.setOnAction((ActionEvent e) ->        controller.setView(null));
-        leaderboardButton.setOnAction((ActionEvent e) -> controller.quit());
+        quitButton.setOnAction((ActionEvent e) ->        controller.quit());
+        leaderboardButton.setOnAction((ActionEvent e) -> controller.setView(new LeaderboardView()));
     }
 }
