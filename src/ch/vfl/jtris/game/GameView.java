@@ -55,7 +55,6 @@ public class GameView implements IView {
         return scene;
     }
 
-
     public void run(IViewController controller) {
         this.controller = controller;
 
